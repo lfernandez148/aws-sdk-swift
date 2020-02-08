@@ -727,11 +727,20 @@
 
                 </div>
               </div>
-            <p>Amazon Elastic File System Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the User Guide.</p>
+            <p>Client object for interacting with AWS EFS service.</p>
+
+<p>Amazon Elastic File System Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the User Guide.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Member%20variables"></a>
+                <a name="//apple_ref/swift/Section/Member variables" class="dashAnchor"></a>
+                <a href="#/Member%20variables">
+                  <h3 class="section-name">Member variables</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
@@ -760,6 +769,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <a href="#/Initialization">
+                  <h3 class="section-name">Initialization</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -773,7 +793,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize the EFS client</p>
 
                       </div>
                       <div class="declaration">
@@ -784,9 +804,111 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessKeyId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Public access key provided by AWS</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>secretAccessKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Private access key provided by AWS</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sessionToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Token provided by STS.AssumeRole() which allows access to another AWS account</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Region of server you want to communicate with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Custom endpoint URL to use instead of standard AWS servers</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>middlewares</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of middlewares to apply to requests and responses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventLoopGroupProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EventLoopGroup to use. Use <code>useAWSClientShared</code> if the client shall manage its own EventLoopGroup.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/API%20Calls"></a>
+                <a name="//apple_ref/swift/Section/API Calls" class="dashAnchor"></a>
+                <a href="#/API%20Calls">
+                  <h3 class="section-name">API Calls</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -807,7 +929,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createAccessPoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateAccessPointRequest.html">CreateAccessPointRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/AccessPointDescription.html">AccessPointDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createAccessPoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateAccessPointRequest.html">CreateAccessPointRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/AccessPointDescription.html">AccessPointDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -834,7 +956,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateFileSystemRequest.html">CreateFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemDescription.html">FileSystemDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateFileSystemRequest.html">CreateFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemDescription.html">FileSystemDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -861,7 +983,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createMountTarget</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateMountTargetRequest.html">CreateMountTargetRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/MountTargetDescription.html">MountTargetDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createMountTarget</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateMountTargetRequest.html">CreateMountTargetRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/MountTargetDescription.html">MountTargetDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -890,7 +1012,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use TagResource.")</span>
 <span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">createTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateTagsRequest.html">CreateTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">createTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/CreateTagsRequest.html">CreateTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -918,7 +1040,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteAccessPoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteAccessPointRequest.html">DeleteAccessPointRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteAccessPoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteAccessPointRequest.html">DeleteAccessPointRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -946,7 +1068,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteFileSystemRequest.html">DeleteFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteFileSystemRequest.html">DeleteFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -974,7 +1096,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteFileSystemPolicyRequest.html">DeleteFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteFileSystemPolicyRequest.html">DeleteFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1002,7 +1124,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteMountTarget</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteMountTargetRequest.html">DeleteMountTargetRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteMountTarget</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteMountTargetRequest.html">DeleteMountTargetRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1031,7 +1153,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use UntagResource.")</span>
 <span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteTagsRequest.html">DeleteTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DeleteTagsRequest.html">DeleteTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1058,7 +1180,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAccessPoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeAccessPointsRequest.html">DescribeAccessPointsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeAccessPointsResponse.html">DescribeAccessPointsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAccessPoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeAccessPointsRequest.html">DescribeAccessPointsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeAccessPointsResponse.html">DescribeAccessPointsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1085,7 +1207,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeFileSystemPolicyRequest.html">DescribeFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemPolicyDescription.html">FileSystemPolicyDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeFileSystemPolicyRequest.html">DescribeFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemPolicyDescription.html">FileSystemPolicyDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1112,7 +1234,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeFileSystems</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeFileSystemsRequest.html">DescribeFileSystemsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeFileSystemsResponse.html">DescribeFileSystemsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeFileSystems</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeFileSystemsRequest.html">DescribeFileSystemsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeFileSystemsResponse.html">DescribeFileSystemsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1139,7 +1261,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeLifecycleConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeLifecycleConfigurationRequest.html">DescribeLifecycleConfigurationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/LifecycleConfigurationDescription.html">LifecycleConfigurationDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeLifecycleConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeLifecycleConfigurationRequest.html">DescribeLifecycleConfigurationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/LifecycleConfigurationDescription.html">LifecycleConfigurationDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1166,7 +1288,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeMountTargetSecurityGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeMountTargetSecurityGroupsRequest.html">DescribeMountTargetSecurityGroupsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeMountTargetSecurityGroupsResponse.html">DescribeMountTargetSecurityGroupsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeMountTargetSecurityGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeMountTargetSecurityGroupsRequest.html">DescribeMountTargetSecurityGroupsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeMountTargetSecurityGroupsResponse.html">DescribeMountTargetSecurityGroupsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1193,7 +1315,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeMountTargets</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeMountTargetsRequest.html">DescribeMountTargetsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeMountTargetsResponse.html">DescribeMountTargetsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeMountTargets</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeMountTargetsRequest.html">DescribeMountTargetsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeMountTargetsResponse.html">DescribeMountTargetsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1221,7 +1343,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use ListTagsForResource.")</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeTagsRequest.html">DescribeTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeTagsResponse.html">DescribeTagsResponse</a></span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeTagsRequest.html">DescribeTagsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/DescribeTagsResponse.html">DescribeTagsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1248,7 +1370,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTagsForResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/ListTagsForResourceRequest.html">ListTagsForResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/ListTagsForResourceResponse.html">ListTagsForResourceResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTagsForResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/ListTagsForResourceRequest.html">ListTagsForResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/ListTagsForResourceResponse.html">ListTagsForResourceResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1276,7 +1398,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyMountTargetSecurityGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/ModifyMountTargetSecurityGroupsRequest.html">ModifyMountTargetSecurityGroupsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyMountTargetSecurityGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/ModifyMountTargetSecurityGroupsRequest.html">ModifyMountTargetSecurityGroupsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1303,7 +1425,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/PutFileSystemPolicyRequest.html">PutFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemPolicyDescription.html">FileSystemPolicyDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putFileSystemPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/PutFileSystemPolicyRequest.html">PutFileSystemPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemPolicyDescription.html">FileSystemPolicyDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1330,7 +1452,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putLifecycleConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/PutLifecycleConfigurationRequest.html">PutLifecycleConfigurationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/LifecycleConfigurationDescription.html">LifecycleConfigurationDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putLifecycleConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/PutLifecycleConfigurationRequest.html">PutLifecycleConfigurationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/LifecycleConfigurationDescription.html">LifecycleConfigurationDescription</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1358,7 +1480,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/TagResourceRequest.html">TagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/TagResourceRequest.html">TagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1386,7 +1508,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/UntagResourceRequest.html">UntagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/UntagResourceRequest.html">UntagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1413,7 +1535,254 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/UpdateFileSystemRequest.html">UpdateFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemDescription.html">FileSystemDescription</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateFileSystem</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/UpdateFileSystemRequest.html">UpdateFileSystemRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/EFS/FileSystemDescription.html">FileSystemDescription</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Paginators"></a>
+                <a name="//apple_ref/swift/Section/Paginators" class="dashAnchor"></a>
+                <a href="#/Paginators">
+                  <h3 class="section-name">Paginators</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV29describeAccessPointsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribecD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/describeAccessPointsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV29describeAccessPointsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribecD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">describeAccessPointsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the description of a specific Amazon EFS access point if the AccessPointId is provided. If you provide an EFS FileSystemId, it returns descriptions of all access points for that file system. You can provide either an AccessPointId or a FileSystemId in the request, but not both.  This operation requires permissions for the elasticfilesystem:DescribeAccessPoints action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAccessPointsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeAccessPointsRequest.html">DescribeAccessPointsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/EFS/DescribeAccessPointsResponse.html">DescribeAccessPointsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV28describeFileSystemsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribecD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/describeFileSystemsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV28describeFileSystemsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribecD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">describeFileSystemsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the description of a specific Amazon EFS file system if either the file system CreationToken or the FileSystemId is provided. Otherwise, it returns descriptions of all file systems owned by the caller&rsquo;s AWS account in the AWS Region of the endpoint that you&rsquo;re calling. When retrieving all file system descriptions, you can optionally specify the MaxItems parameter to limit the number of descriptions in a response. Currently, this number is automatically set to 10. If more file system descriptions remain, Amazon EFS returns a NextMarker, an opaque token, in the response. In this case, you should send a subsequent request with the Marker request parameter set to the value of NextMarker.  To retrieve a list of your file system descriptions, this operation is used in an iterative process, where DescribeFileSystems is called first without the Marker and then the operation continues to call it with the Marker parameter set to the value of the NextMarker from the previous response until the response has no NextMarker.   The order of file systems returned in the response of one DescribeFileSystems call and the order of file systems returned across the responses of a multi-call iteration is unspecified.   This operation requires permissions for the elasticfilesystem:DescribeFileSystems action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeFileSystemsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeFileSystemsRequest.html">DescribeFileSystemsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/EFS/DescribeFileSystemsResponse.html">DescribeFileSystemsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV21describeTagsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribeC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/describeTagsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV21describeTagsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribeC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF">describeTagsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the tags associated with a file system. The order of tags returned in the response of one DescribeTags call and the order of tags returned across the responses of a multiple-call iteration (when using pagination) is unspecified.   This operation requires permissions for the elasticfilesystem:DescribeTags action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use ListTagsForResource.")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeTagsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/DescribeTagsRequest.html">DescribeTagsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/EFS/DescribeTagsResponse.html">DescribeTagsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV28listTagsForResourcePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdE7RequestV_AGySbGAB0mcdE8ResponseV_AE0jK0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listTagsForResourcePaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV28listTagsForResourcePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdE7RequestV_AGySbGAB0mcdE8ResponseV_AE0jK0_ptctF">listTagsForResourcePaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists all tags for a top-level EFS resource. You must provide the ID of the resource that you want to retrieve the tags for. This operation requires permissions for the elasticfilesystem:DescribeAccessPoints action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTagsForResourcePaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/EFS/ListTagsForResourceRequest.html">ListTagsForResourceRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/EFS/ListTagsForResourceResponse.html">ListTagsForResourceResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Shapes"></a>
+                <a name="//apple_ref/swift/Section/Shapes" class="dashAnchor"></a>
+                <a href="#/Shapes">
+                  <h3 class="section-name">Shapes</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV27DescribeAccessPointsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeAccessPointsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV27DescribeAccessPointsRequestV">DescribeAccessPointsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/DescribeAccessPointsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeAccessPointsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/EFS.html">EFS</a></span><span class="o">.</span><span class="kt">DescribeAccessPointsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV26DescribeFileSystemsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeFileSystemsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV26DescribeFileSystemsRequestV">DescribeFileSystemsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/DescribeFileSystemsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeFileSystemsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/EFS.html">EFS</a></span><span class="o">.</span><span class="kt">DescribeFileSystemsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV19DescribeTagsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeTagsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV19DescribeTagsRequestV">DescribeTagsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/DescribeTagsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeTagsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/EFS.html">EFS</a></span><span class="o">.</span><span class="kt">DescribeTagsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV26ListTagsForResourceRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListTagsForResourceRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV26ListTagsForResourceRequestV">ListTagsForResourceRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/ListTagsForResourceRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListTagsForResourceRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/EFS.html">EFS</a></span><span class="o">.</span><span class="kt">ListTagsForResourceRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1731,34 +2100,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3EFSAAV27DescribeAccessPointsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/DescribeAccessPointsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV27DescribeAccessPointsRequestV">DescribeAccessPointsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/DescribeAccessPointsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeAccessPointsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:3EFSAAV28DescribeAccessPointsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/DescribeAccessPointsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:3EFSAAV28DescribeAccessPointsResponseV">DescribeAccessPointsResponse</a>
@@ -1806,34 +2147,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeFileSystemPolicyRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3EFSAAV26DescribeFileSystemsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/DescribeFileSystemsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV26DescribeFileSystemsRequestV">DescribeFileSystemsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/DescribeFileSystemsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeFileSystemsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2011,34 +2324,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3EFSAAV19DescribeTagsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/DescribeTagsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV19DescribeTagsRequestV">DescribeTagsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/DescribeTagsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeTagsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:3EFSAAV20DescribeTagsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/DescribeTagsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:3EFSAAV20DescribeTagsResponseV">DescribeTagsResponse</a>
@@ -2151,34 +2436,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3EFSAAV14LifeCycleStateO"></a>
-                    <a name="//apple_ref/swift/Enum/LifeCycleState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV14LifeCycleStateO">LifeCycleState</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/LifeCycleState.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LifeCycleState</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:3EFSAAV33LifecycleConfigurationDescriptionV"></a>
                     <a name="//apple_ref/swift/Struct/LifecycleConfigurationDescription" class="dashAnchor"></a>
                     <a class="token" href="#/s:3EFSAAV33LifecycleConfigurationDescriptionV">LifecycleConfigurationDescription</a>
@@ -2226,34 +2483,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LifecyclePolicy</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3EFSAAV26ListTagsForResourceRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListTagsForResourceRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV26ListTagsForResourceRequestV">ListTagsForResourceRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/ListTagsForResourceRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListTagsForResourceRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2338,34 +2567,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MountTargetDescription</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3EFSAAV15PerformanceModeO"></a>
-                    <a name="//apple_ref/swift/Enum/PerformanceMode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV15PerformanceModeO">PerformanceMode</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/PerformanceMode.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">PerformanceMode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -2543,62 +2744,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3EFSAAV14ThroughputModeO"></a>
-                    <a name="//apple_ref/swift/Enum/ThroughputMode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV14ThroughputModeO">ThroughputMode</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/ThroughputMode.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ThroughputMode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3EFSAAV19TransitionToIARulesO"></a>
-                    <a name="//apple_ref/swift/Enum/TransitionToIARules" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EFSAAV19TransitionToIARulesO">TransitionToIARules</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/EFS/TransitionToIARules.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TransitionToIARules</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:3EFSAAV20UntagResourceRequestV"></a>
                     <a name="//apple_ref/swift/Struct/UntagResourceRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:3EFSAAV20UntagResourceRequestV">UntagResourceRequest</a>
@@ -2646,6 +2791,129 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UpdateFileSystemRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enums"></a>
+                <a name="//apple_ref/swift/Section/Enums" class="dashAnchor"></a>
+                <a href="#/Enums">
+                  <h3 class="section-name">Enums</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV14LifeCycleStateO"></a>
+                    <a name="//apple_ref/swift/Enum/LifeCycleState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV14LifeCycleStateO">LifeCycleState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/LifeCycleState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LifeCycleState</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV15PerformanceModeO"></a>
+                    <a name="//apple_ref/swift/Enum/PerformanceMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV15PerformanceModeO">PerformanceMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/PerformanceMode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">PerformanceMode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV14ThroughputModeO"></a>
+                    <a name="//apple_ref/swift/Enum/ThroughputMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV14ThroughputModeO">ThroughputMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/ThroughputMode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ThroughputMode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EFSAAV19TransitionToIARulesO"></a>
+                    <a name="//apple_ref/swift/Enum/TransitionToIARules" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EFSAAV19TransitionToIARulesO">TransitionToIARules</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/EFS/TransitionToIARules.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TransitionToIARules</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>

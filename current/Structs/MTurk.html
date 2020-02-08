@@ -727,11 +727,20 @@
 
                 </div>
               </div>
-            <p>Amazon Mechanical Turk API Reference</p>
+            <p>Client object for interacting with AWS MTurk service.</p>
+
+<p>Amazon Mechanical Turk API Reference</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Member%20variables"></a>
+                <a name="//apple_ref/swift/Section/Member variables" class="dashAnchor"></a>
+                <a href="#/Member%20variables">
+                  <h3 class="section-name">Member variables</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
@@ -760,6 +769,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <a href="#/Initialization">
+                  <h3 class="section-name">Initialization</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -773,7 +793,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize the MTurk client</p>
 
                       </div>
                       <div class="declaration">
@@ -784,9 +804,111 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessKeyId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Public access key provided by AWS</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>secretAccessKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Private access key provided by AWS</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sessionToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Token provided by STS.AssumeRole() which allows access to another AWS account</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Region of server you want to communicate with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Custom endpoint URL to use instead of standard AWS servers</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>middlewares</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of middlewares to apply to requests and responses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventLoopGroupProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EventLoopGroup to use. Use <code>useAWSClientShared</code> if the client shall manage its own EventLoopGroup.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/API%20Calls"></a>
+                <a name="//apple_ref/swift/Section/API Calls" class="dashAnchor"></a>
+                <a href="#/API%20Calls">
+                  <h3 class="section-name">API Calls</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -807,7 +929,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">acceptQualificationRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/AcceptQualificationRequestRequest.html">AcceptQualificationRequestRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/AcceptQualificationRequestResponse.html">AcceptQualificationRequestResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">acceptQualificationRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/AcceptQualificationRequestRequest.html">AcceptQualificationRequestRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/AcceptQualificationRequestResponse.html">AcceptQualificationRequestResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -834,7 +956,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">approveAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ApproveAssignmentRequest.html">ApproveAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ApproveAssignmentResponse.html">ApproveAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">approveAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ApproveAssignmentRequest.html">ApproveAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ApproveAssignmentResponse.html">ApproveAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -861,7 +983,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">associateQualificationWithWorker</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/AssociateQualificationWithWorkerRequest.html">AssociateQualificationWithWorkerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/AssociateQualificationWithWorkerResponse.html">AssociateQualificationWithWorkerResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">associateQualificationWithWorker</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/AssociateQualificationWithWorkerRequest.html">AssociateQualificationWithWorkerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/AssociateQualificationWithWorkerResponse.html">AssociateQualificationWithWorkerResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -888,7 +1010,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createAdditionalAssignmentsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateAdditionalAssignmentsForHITRequest.html">CreateAdditionalAssignmentsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateAdditionalAssignmentsForHITResponse.html">CreateAdditionalAssignmentsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createAdditionalAssignmentsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateAdditionalAssignmentsForHITRequest.html">CreateAdditionalAssignmentsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateAdditionalAssignmentsForHITResponse.html">CreateAdditionalAssignmentsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -915,7 +1037,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITRequest.html">CreateHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITResponse.html">CreateHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITRequest.html">CreateHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITResponse.html">CreateHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -942,7 +1064,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHITType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITTypeRequest.html">CreateHITTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITTypeResponse.html">CreateHITTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHITType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITTypeRequest.html">CreateHITTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITTypeResponse.html">CreateHITTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -969,7 +1091,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHITWithHITType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITWithHITTypeRequest.html">CreateHITWithHITTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITWithHITTypeResponse.html">CreateHITWithHITTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createHITWithHITType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateHITWithHITTypeRequest.html">CreateHITWithHITTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateHITWithHITTypeResponse.html">CreateHITWithHITTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -996,7 +1118,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateQualificationTypeRequest.html">CreateQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateQualificationTypeResponse.html">CreateQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateQualificationTypeRequest.html">CreateQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateQualificationTypeResponse.html">CreateQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1023,7 +1145,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createWorkerBlock</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateWorkerBlockRequest.html">CreateWorkerBlockRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateWorkerBlockResponse.html">CreateWorkerBlockResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createWorkerBlock</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/CreateWorkerBlockRequest.html">CreateWorkerBlockRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/CreateWorkerBlockResponse.html">CreateWorkerBlockResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1050,7 +1172,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteHITRequest.html">DeleteHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteHITResponse.html">DeleteHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteHITRequest.html">DeleteHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteHITResponse.html">DeleteHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1077,7 +1199,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteQualificationTypeRequest.html">DeleteQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteQualificationTypeResponse.html">DeleteQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteQualificationTypeRequest.html">DeleteQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteQualificationTypeResponse.html">DeleteQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1104,7 +1226,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteWorkerBlock</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteWorkerBlockRequest.html">DeleteWorkerBlockRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteWorkerBlockResponse.html">DeleteWorkerBlockResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteWorkerBlock</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DeleteWorkerBlockRequest.html">DeleteWorkerBlockRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DeleteWorkerBlockResponse.html">DeleteWorkerBlockResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1131,7 +1253,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disassociateQualificationFromWorker</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DisassociateQualificationFromWorkerRequest.html">DisassociateQualificationFromWorkerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DisassociateQualificationFromWorkerResponse.html">DisassociateQualificationFromWorkerResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disassociateQualificationFromWorker</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/DisassociateQualificationFromWorkerRequest.html">DisassociateQualificationFromWorkerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/DisassociateQualificationFromWorkerResponse.html">DisassociateQualificationFromWorkerResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1158,7 +1280,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAccountBalance</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetAccountBalanceRequest.html">GetAccountBalanceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetAccountBalanceResponse.html">GetAccountBalanceResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAccountBalance</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetAccountBalanceRequest.html">GetAccountBalanceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetAccountBalanceResponse.html">GetAccountBalanceResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1185,7 +1307,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetAssignmentRequest.html">GetAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetAssignmentResponse.html">GetAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetAssignmentRequest.html">GetAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetAssignmentResponse.html">GetAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1212,7 +1334,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFileUploadURL</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetFileUploadURLRequest.html">GetFileUploadURLRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetFileUploadURLResponse.html">GetFileUploadURLResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFileUploadURL</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetFileUploadURLRequest.html">GetFileUploadURLRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetFileUploadURLResponse.html">GetFileUploadURLResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1239,7 +1361,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetHITRequest.html">GetHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetHITResponse.html">GetHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetHITRequest.html">GetHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetHITResponse.html">GetHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1266,7 +1388,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getQualificationScore</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetQualificationScoreRequest.html">GetQualificationScoreRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetQualificationScoreResponse.html">GetQualificationScoreResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getQualificationScore</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetQualificationScoreRequest.html">GetQualificationScoreRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetQualificationScoreResponse.html">GetQualificationScoreResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1293,7 +1415,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetQualificationTypeRequest.html">GetQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetQualificationTypeResponse.html">GetQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/GetQualificationTypeRequest.html">GetQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/GetQualificationTypeResponse.html">GetQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1320,7 +1442,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listAssignmentsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITRequest.html">ListAssignmentsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITResponse.html">ListAssignmentsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listAssignmentsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITRequest.html">ListAssignmentsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITResponse.html">ListAssignmentsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1347,7 +1469,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listBonusPayments</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsRequest.html">ListBonusPaymentsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsResponse.html">ListBonusPaymentsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listBonusPayments</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsRequest.html">ListBonusPaymentsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsResponse.html">ListBonusPaymentsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1374,7 +1496,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITs</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsRequest.html">ListHITsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListHITsResponse.html">ListHITsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITs</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsRequest.html">ListHITsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListHITsResponse.html">ListHITsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1401,7 +1523,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITsForQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeRequest.html">ListHITsForQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeResponse.html">ListHITsForQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITsForQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeRequest.html">ListHITsForQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeResponse.html">ListHITsForQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1428,7 +1550,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationRequests</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsRequest.html">ListQualificationRequestsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsResponse.html">ListQualificationRequestsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationRequests</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsRequest.html">ListQualificationRequestsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsResponse.html">ListQualificationRequestsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1455,7 +1577,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationTypesRequest.html">ListQualificationTypesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListQualificationTypesResponse.html">ListQualificationTypesResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationTypesRequest.html">ListQualificationTypesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListQualificationTypesResponse.html">ListQualificationTypesResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1482,7 +1604,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewPolicyResultsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITRequest.html">ListReviewPolicyResultsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITResponse.html">ListReviewPolicyResultsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewPolicyResultsForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITRequest.html">ListReviewPolicyResultsForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITResponse.html">ListReviewPolicyResultsForHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1509,7 +1631,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewableHITs</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewableHITsRequest.html">ListReviewableHITsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListReviewableHITsResponse.html">ListReviewableHITsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewableHITs</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewableHITsRequest.html">ListReviewableHITsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListReviewableHITsResponse.html">ListReviewableHITsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1536,7 +1658,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkerBlocks</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksRequest.html">ListWorkerBlocksRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksResponse.html">ListWorkerBlocksResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkerBlocks</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksRequest.html">ListWorkerBlocksRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksResponse.html">ListWorkerBlocksResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1563,7 +1685,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkersWithQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeRequest.html">ListWorkersWithQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeResponse.html">ListWorkersWithQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkersWithQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeRequest.html">ListWorkersWithQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeResponse.html">ListWorkersWithQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1590,7 +1712,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">notifyWorkers</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/NotifyWorkersRequest.html">NotifyWorkersRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/NotifyWorkersResponse.html">NotifyWorkersResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">notifyWorkers</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/NotifyWorkersRequest.html">NotifyWorkersRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/NotifyWorkersResponse.html">NotifyWorkersResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1617,7 +1739,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rejectAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/RejectAssignmentRequest.html">RejectAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/RejectAssignmentResponse.html">RejectAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rejectAssignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/RejectAssignmentRequest.html">RejectAssignmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/RejectAssignmentResponse.html">RejectAssignmentResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1644,7 +1766,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rejectQualificationRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/RejectQualificationRequestRequest.html">RejectQualificationRequestRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/RejectQualificationRequestResponse.html">RejectQualificationRequestResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rejectQualificationRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/RejectQualificationRequestRequest.html">RejectQualificationRequestRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/RejectQualificationRequestResponse.html">RejectQualificationRequestResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1671,7 +1793,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sendBonus</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/SendBonusRequest.html">SendBonusRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/SendBonusResponse.html">SendBonusResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sendBonus</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/SendBonusRequest.html">SendBonusRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/SendBonusResponse.html">SendBonusResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1698,7 +1820,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sendTestEventNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/SendTestEventNotificationRequest.html">SendTestEventNotificationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/SendTestEventNotificationResponse.html">SendTestEventNotificationResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sendTestEventNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/SendTestEventNotificationRequest.html">SendTestEventNotificationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/SendTestEventNotificationResponse.html">SendTestEventNotificationResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1725,7 +1847,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateExpirationForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateExpirationForHITRequest.html">UpdateExpirationForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateExpirationForHITResponse.html">UpdateExpirationForHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateExpirationForHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateExpirationForHITRequest.html">UpdateExpirationForHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateExpirationForHITResponse.html">UpdateExpirationForHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1752,7 +1874,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateHITReviewStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateHITReviewStatusRequest.html">UpdateHITReviewStatusRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateHITReviewStatusResponse.html">UpdateHITReviewStatusResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateHITReviewStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateHITReviewStatusRequest.html">UpdateHITReviewStatusRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateHITReviewStatusResponse.html">UpdateHITReviewStatusResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1779,7 +1901,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateHITTypeOfHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateHITTypeOfHITRequest.html">UpdateHITTypeOfHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateHITTypeOfHITResponse.html">UpdateHITTypeOfHITResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateHITTypeOfHIT</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateHITTypeOfHITRequest.html">UpdateHITTypeOfHITRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateHITTypeOfHITResponse.html">UpdateHITTypeOfHITResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1806,7 +1928,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateNotificationSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateNotificationSettingsRequest.html">UpdateNotificationSettingsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateNotificationSettingsResponse.html">UpdateNotificationSettingsResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateNotificationSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateNotificationSettingsRequest.html">UpdateNotificationSettingsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateNotificationSettingsResponse.html">UpdateNotificationSettingsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1833,7 +1955,589 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateQualificationTypeRequest.html">UpdateQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other%20Typealiases.html#/s:15AWSSDKSwiftCore6Futurea">Future</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateQualificationTypeResponse.html">UpdateQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateQualificationType</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/UpdateQualificationTypeRequest.html">UpdateQualificationTypeRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MTurk/UpdateQualificationTypeResponse.html">UpdateQualificationTypeResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Paginators"></a>
+                <a name="//apple_ref/swift/Section/Paginators" class="dashAnchor"></a>
+                <a href="#/Paginators">
+                  <h3 class="section-name">Paginators</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV30listAssignmentsForHITPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD10HITRequestV_AGySbGAB0lcD11HITResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listAssignmentsForHITPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV30listAssignmentsForHITPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD10HITRequestV_AGySbGAB0lcD11HITResponseV_AE0iJ0_ptctF">listAssignmentsForHITPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListAssignmentsForHIT operation retrieves completed assignments for a HIT. You can use this operation to retrieve the results for a HIT.   You can get assignments for a HIT at any time, even if the HIT is not yet Reviewable. If a HIT requested multiple assignments, and has received some results but has not yet become Reviewable, you can still retrieve the partial results with this operation.   Use the AssignmentStatus parameter to control which set of assignments for a HIT are returned. The ListAssignmentsForHIT operation can return submitted assignments awaiting approval, or it can return assignments that have already been approved or rejected. You can set AssignmentStatus=Approved,Rejected to get assignments that have already been approved and rejected together in one result set.   Only the Requester who created the HIT can retrieve the assignments for that HIT.   Results are sorted and divided into numbered pages and the operation returns a single page of results. You can use the parameters of the operation to control sorting and pagination.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listAssignmentsForHITPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITRequest.html">ListAssignmentsForHITRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListAssignmentsForHITResponse.html">ListAssignmentsForHITResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV26listBonusPaymentsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listBonusPaymentsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV26listBonusPaymentsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">listBonusPaymentsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListBonusPayments operation retrieves the amounts of bonuses you have paid to Workers for a given HIT or assignment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listBonusPaymentsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsRequest.html">ListBonusPaymentsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListBonusPaymentsResponse.html">ListBonusPaymentsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV17listHITsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listHITsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV17listHITsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF">listHITsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListHITs operation returns all of a Requester&rsquo;s HITs. The operation returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation or that have been auto-deleted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsRequest.html">ListHITsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListHITsResponse.html">ListHITsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV37listHITsForQualificationTypePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF7RequestV_AGySbGAB0ncdeF8ResponseV_AE0kL0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listHITsForQualificationTypePaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV37listHITsForQualificationTypePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF7RequestV_AGySbGAB0ncdeF8ResponseV_AE0kL0_ptctF">listHITsForQualificationTypePaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListHITsForQualificationType operation returns the HITs that use the given Qualification type for a Qualification requirement. The operation returns HITs of any status, except for HITs that have been deleted with the DeleteHIT operation or that have been auto-deleted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHITsForQualificationTypePaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeRequest.html">ListHITsForQualificationTypeRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListHITsForQualificationTypeResponse.html">ListHITsForQualificationTypeResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV34listQualificationRequestsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listQualificationRequestsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV34listQualificationRequestsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">listQualificationRequestsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListQualificationRequests operation retrieves requests for Qualifications of a particular Qualification type. The owner of the Qualification type calls this operation to poll for pending requests, and accepts them using the AcceptQualification operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationRequestsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsRequest.html">ListQualificationRequestsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListQualificationRequestsResponse.html">ListQualificationRequestsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV31listQualificationTypesPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listQualificationTypesPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV31listQualificationTypesPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">listQualificationTypesPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListQualificationTypes operation returns a list of Qualification types, filtered by an optional search term.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listQualificationTypesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListQualificationTypesRequest.html">ListQualificationTypesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListQualificationTypesResponse.html">ListQualificationTypesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV38listReviewPolicyResultsForHITPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF10HITRequestV_AGySbGAB0ncdeF11HITResponseV_AE0kL0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listReviewPolicyResultsForHITPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV38listReviewPolicyResultsForHITPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF10HITRequestV_AGySbGAB0ncdeF11HITResponseV_AE0kL0_ptctF">listReviewPolicyResultsForHITPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListReviewPolicyResultsForHIT operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewPolicyResultsForHITPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITRequest.html">ListReviewPolicyResultsForHITRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListReviewPolicyResultsForHITResponse.html">ListReviewPolicyResultsForHITResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV27listReviewableHITsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listReviewableHITsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV27listReviewableHITsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">listReviewableHITsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListReviewableHITs operation retrieves the HITs with Status equal to Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listReviewableHITsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListReviewableHITsRequest.html">ListReviewableHITsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListReviewableHITsResponse.html">ListReviewableHITsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV25listWorkerBlocksPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listWorkerBlocksPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV25listWorkerBlocksPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcD7RequestV_AGySbGAB0lcD8ResponseV_AE0iJ0_ptctF">listWorkerBlocksPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListWorkersBlocks operation retrieves a list of Workers who are blocked from working on your HITs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkerBlocksPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksRequest.html">ListWorkerBlocksRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListWorkerBlocksResponse.html">ListWorkerBlocksResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV41listWorkersWithQualificationTypePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF7RequestV_AGySbGAB0ncdeF8ResponseV_AE0kL0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listWorkersWithQualificationTypePaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV41listWorkersWithQualificationTypePaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListcdeF7RequestV_AGySbGAB0ncdeF8ResponseV_AE0kL0_ptctF">listWorkersWithQualificationTypePaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ListWorkersWithQualificationType operation returns all of the Workers that have been associated with a given Qualification type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkersWithQualificationTypePaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeRequest.html">ListWorkersWithQualificationTypeRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/MTurk/ListWorkersWithQualificationTypeResponse.html">ListWorkersWithQualificationTypeResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Shapes"></a>
+                <a name="//apple_ref/swift/Section/Shapes" class="dashAnchor"></a>
+                <a href="#/Shapes">
+                  <h3 class="section-name">Shapes</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV28ListAssignmentsForHITRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListAssignmentsForHITRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV28ListAssignmentsForHITRequestV">ListAssignmentsForHITRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListAssignmentsForHITRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListAssignmentsForHITRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListAssignmentsForHITRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV24ListBonusPaymentsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListBonusPaymentsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV24ListBonusPaymentsRequestV">ListBonusPaymentsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListBonusPaymentsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListBonusPaymentsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListBonusPaymentsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV15ListHITsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListHITsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV15ListHITsRequestV">ListHITsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListHITsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHITsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListHITsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV35ListHITsForQualificationTypeRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListHITsForQualificationTypeRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV35ListHITsForQualificationTypeRequestV">ListHITsForQualificationTypeRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListHITsForQualificationTypeRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHITsForQualificationTypeRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListHITsForQualificationTypeRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV32ListQualificationRequestsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListQualificationRequestsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV32ListQualificationRequestsRequestV">ListQualificationRequestsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListQualificationRequestsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListQualificationRequestsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListQualificationRequestsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV29ListQualificationTypesRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListQualificationTypesRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV29ListQualificationTypesRequestV">ListQualificationTypesRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListQualificationTypesRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListQualificationTypesRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListQualificationTypesRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV36ListReviewPolicyResultsForHITRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListReviewPolicyResultsForHITRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV36ListReviewPolicyResultsForHITRequestV">ListReviewPolicyResultsForHITRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListReviewPolicyResultsForHITRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListReviewPolicyResultsForHITRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListReviewPolicyResultsForHITRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV25ListReviewableHITsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListReviewableHITsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV25ListReviewableHITsRequestV">ListReviewableHITsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListReviewableHITsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListReviewableHITsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListReviewableHITsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV23ListWorkerBlocksRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListWorkerBlocksRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV23ListWorkerBlocksRequestV">ListWorkerBlocksRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListWorkerBlocksRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkerBlocksRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListWorkerBlocksRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV39ListWorkersWithQualificationTypeRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListWorkersWithQualificationTypeRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV39ListWorkersWithQualificationTypeRequestV">ListWorkersWithQualificationTypeRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ListWorkersWithQualificationTypeRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkersWithQualificationTypeRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/MTurk.html">MTurk</a></span><span class="o">.</span><span class="kt">ListWorkersWithQualificationTypeRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1983,34 +2687,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV16AssignmentStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/AssignmentStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV16AssignmentStatusO">AssignmentStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/AssignmentStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AssignmentStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV39AssociateQualificationWithWorkerRequestV"></a>
                     <a name="//apple_ref/swift/Struct/AssociateQualificationWithWorkerRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV39AssociateQualificationWithWorkerRequestV">AssociateQualificationWithWorkerRequest</a>
@@ -2086,34 +2762,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BonusPayment</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV10ComparatorO"></a>
-                    <a name="//apple_ref/swift/Enum/Comparator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV10ComparatorO">Comparator</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/Comparator.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Comparator</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -2683,34 +3331,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV9EventTypeO"></a>
-                    <a name="//apple_ref/swift/Enum/EventType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV9EventTypeO">EventType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/EventType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">EventType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV24GetAccountBalanceRequestV"></a>
                     <a name="//apple_ref/swift/Struct/GetAccountBalanceRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV24GetAccountBalanceRequestV">GetAccountBalanceRequest</a>
@@ -3075,34 +3695,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV16HITAccessActionsO"></a>
-                    <a name="//apple_ref/swift/Enum/HITAccessActions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV16HITAccessActionsO">HITAccessActions</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/HITAccessActions.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITAccessActions</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV18HITLayoutParameterV"></a>
                     <a name="//apple_ref/swift/Struct/HITLayoutParameter" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV18HITLayoutParameterV">HITLayoutParameter</a>
@@ -3122,90 +3714,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HITLayoutParameter</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV15HITReviewStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/HITReviewStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV15HITReviewStatusO">HITReviewStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/HITReviewStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITReviewStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV9HITStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/HITStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV9HITStatusO">HITStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/HITStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV28ListAssignmentsForHITRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListAssignmentsForHITRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV28ListAssignmentsForHITRequestV">ListAssignmentsForHITRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListAssignmentsForHITRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListAssignmentsForHITRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3243,34 +3751,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV24ListBonusPaymentsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListBonusPaymentsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV24ListBonusPaymentsRequestV">ListBonusPaymentsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListBonusPaymentsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListBonusPaymentsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV25ListBonusPaymentsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListBonusPaymentsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV25ListBonusPaymentsResponseV">ListBonusPaymentsResponse</a>
@@ -3290,34 +3770,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListBonusPaymentsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV35ListHITsForQualificationTypeRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListHITsForQualificationTypeRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV35ListHITsForQualificationTypeRequestV">ListHITsForQualificationTypeRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListHITsForQualificationTypeRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHITsForQualificationTypeRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3355,34 +3807,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV15ListHITsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListHITsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV15ListHITsRequestV">ListHITsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListHITsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHITsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV16ListHITsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListHITsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV16ListHITsResponseV">ListHITsResponse</a>
@@ -3402,34 +3826,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHITsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV32ListQualificationRequestsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListQualificationRequestsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV32ListQualificationRequestsRequestV">ListQualificationRequestsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListQualificationRequestsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListQualificationRequestsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3467,34 +3863,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV29ListQualificationTypesRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListQualificationTypesRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV29ListQualificationTypesRequestV">ListQualificationTypesRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListQualificationTypesRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListQualificationTypesRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV30ListQualificationTypesResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListQualificationTypesResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV30ListQualificationTypesResponseV">ListQualificationTypesResponse</a>
@@ -3514,34 +3882,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListQualificationTypesResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV36ListReviewPolicyResultsForHITRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListReviewPolicyResultsForHITRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV36ListReviewPolicyResultsForHITRequestV">ListReviewPolicyResultsForHITRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListReviewPolicyResultsForHITRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListReviewPolicyResultsForHITRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3579,34 +3919,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV25ListReviewableHITsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListReviewableHITsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV25ListReviewableHITsRequestV">ListReviewableHITsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListReviewableHITsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListReviewableHITsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV26ListReviewableHITsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListReviewableHITsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV26ListReviewableHITsResponseV">ListReviewableHITsResponse</a>
@@ -3635,34 +3947,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV23ListWorkerBlocksRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListWorkerBlocksRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV23ListWorkerBlocksRequestV">ListWorkerBlocksRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListWorkerBlocksRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkerBlocksRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV24ListWorkerBlocksResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListWorkerBlocksResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV24ListWorkerBlocksResponseV">ListWorkerBlocksResponse</a>
@@ -3682,34 +3966,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkerBlocksResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV39ListWorkersWithQualificationTypeRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListWorkersWithQualificationTypeRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV39ListWorkersWithQualificationTypeRequestV">ListWorkersWithQualificationTypeRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ListWorkersWithQualificationTypeRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkersWithQualificationTypeRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3794,62 +4050,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NotificationSpecification</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV21NotificationTransportO"></a>
-                    <a name="//apple_ref/swift/Enum/NotificationTransport" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV21NotificationTransportO">NotificationTransport</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/NotificationTransport.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NotificationTransport</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV24NotifyWorkersFailureCodeO"></a>
-                    <a name="//apple_ref/swift/Enum/NotifyWorkersFailureCode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV24NotifyWorkersFailureCodeO">NotifyWorkersFailureCode</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/NotifyWorkersFailureCode.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NotifyWorkersFailureCode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -4083,34 +4283,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV19QualificationStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/QualificationStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV19QualificationStatusO">QualificationStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/QualificationStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QualificationStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV17QualificationTypeV"></a>
                     <a name="//apple_ref/swift/Struct/QualificationType" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV17QualificationTypeV">QualificationType</a>
@@ -4130,34 +4302,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">QualificationType</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV23QualificationTypeStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/QualificationTypeStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV23QualificationTypeStatusO">QualificationTypeStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/QualificationTypeStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QualificationTypeStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -4307,34 +4451,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5MTurkAAV18ReviewActionStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/ReviewActionStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV18ReviewActionStatusO">ReviewActionStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ReviewActionStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewActionStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:5MTurkAAV12ReviewPolicyV"></a>
                     <a name="//apple_ref/swift/Struct/ReviewPolicy" class="dashAnchor"></a>
                     <a class="token" href="#/s:5MTurkAAV12ReviewPolicyV">ReviewPolicy</a>
@@ -4354,34 +4470,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ReviewPolicy</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV17ReviewPolicyLevelO"></a>
-                    <a name="//apple_ref/swift/Enum/ReviewPolicyLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV17ReviewPolicyLevelO">ReviewPolicyLevel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ReviewPolicyLevel.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewPolicyLevel</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -4438,34 +4526,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ReviewResultDetail</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5MTurkAAV19ReviewableHITStatusO"></a>
-                    <a name="//apple_ref/swift/Enum/ReviewableHITStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5MTurkAAV19ReviewableHITStatusO">ReviewableHITStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/MTurk/ReviewableHITStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewableHITStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -4886,6 +4946,381 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WorkerBlock</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enums"></a>
+                <a name="//apple_ref/swift/Section/Enums" class="dashAnchor"></a>
+                <a href="#/Enums">
+                  <h3 class="section-name">Enums</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV16AssignmentStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/AssignmentStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV16AssignmentStatusO">AssignmentStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/AssignmentStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AssignmentStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV10ComparatorO"></a>
+                    <a name="//apple_ref/swift/Enum/Comparator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV10ComparatorO">Comparator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/Comparator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Comparator</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV9EventTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/EventType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV9EventTypeO">EventType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/EventType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">EventType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV16HITAccessActionsO"></a>
+                    <a name="//apple_ref/swift/Enum/HITAccessActions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV16HITAccessActionsO">HITAccessActions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/HITAccessActions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITAccessActions</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV15HITReviewStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/HITReviewStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV15HITReviewStatusO">HITReviewStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/HITReviewStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITReviewStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV9HITStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/HITStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV9HITStatusO">HITStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/HITStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HITStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV21NotificationTransportO"></a>
+                    <a name="//apple_ref/swift/Enum/NotificationTransport" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV21NotificationTransportO">NotificationTransport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/NotificationTransport.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NotificationTransport</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV24NotifyWorkersFailureCodeO"></a>
+                    <a name="//apple_ref/swift/Enum/NotifyWorkersFailureCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV24NotifyWorkersFailureCodeO">NotifyWorkersFailureCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/NotifyWorkersFailureCode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NotifyWorkersFailureCode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV19QualificationStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/QualificationStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV19QualificationStatusO">QualificationStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/QualificationStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QualificationStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV23QualificationTypeStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/QualificationTypeStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV23QualificationTypeStatusO">QualificationTypeStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/QualificationTypeStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QualificationTypeStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV18ReviewActionStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/ReviewActionStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV18ReviewActionStatusO">ReviewActionStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ReviewActionStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewActionStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV17ReviewPolicyLevelO"></a>
+                    <a name="//apple_ref/swift/Enum/ReviewPolicyLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV17ReviewPolicyLevelO">ReviewPolicyLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ReviewPolicyLevel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewPolicyLevel</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5MTurkAAV19ReviewableHITStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/ReviewableHITStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5MTurkAAV19ReviewableHITStatusO">ReviewableHITStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MTurk/ReviewableHITStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReviewableHITStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>

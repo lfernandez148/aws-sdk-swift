@@ -752,7 +752,14 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"EvalDecisionDetails"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="nf">map</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span><span class="s">"entry"</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="s">"key"</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="s">"value"</span><span class="p">)),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"EvalResourceDecision"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="kd">enum</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"EvalResourceName"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"MatchedStatements"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">member</span><span class="p">:</span><span class="s">"member"</span><span class="p">)),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"MissingContextValues"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">member</span><span class="p">:</span><span class="s">"member"</span><span class="p">)),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"PermissionsBoundaryDecisionDetail"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">)</span>
+<span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -772,7 +779,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller&rsquo;s IAM policy must grant access.</p>
+                        <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
 
                       </div>
                       <div class="declaration">
@@ -897,9 +904,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3IAMAAV22ResourceSpecificResultV19evalDecisionDetails0ebF00eB4Name17matchedStatements20missingContextValuesADSDySSAB016PolicyEvaluationF4TypeOGSg_AKSSSayAB9StatementVGSgSaySSGSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(evalDecisionDetails:evalResourceDecision:evalResourceName:matchedStatements:missingContextValues:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3IAMAAV22ResourceSpecificResultV19evalDecisionDetails0ebF00eB4Name17matchedStatements20missingContextValuesADSDySSAB016PolicyEvaluationF4TypeOGSg_AKSSSayAB9StatementVGSgSaySSGSgtcfc">init(evalDecisionDetails:evalResourceDecision:evalResourceName:matchedStatements:missingContextValues:)</a>
+                    <a name="/s:3IAMAAV22ResourceSpecificResultV33permissionsBoundaryDecisionDetailAB011PermissionsfgH0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/permissionsBoundaryDecisionDetail" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IAMAAV22ResourceSpecificResultV33permissionsBoundaryDecisionDetailAB011PermissionsfgH0VSgvp">permissionsBoundaryDecisionDetail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">permissionsBoundaryDecisionDetail</span><span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PermissionsBoundaryDecisionDetail.html">PermissionsBoundaryDecisionDetail</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IAMAAV22ResourceSpecificResultV19evalDecisionDetails0ebF00eB4Name17matchedStatements20missingContextValues019permissionsBoundaryF6DetailADSDySSAB016PolicyEvaluationF4TypeOGSg_ALSSSayAB9StatementVGSgSaySSGSgAB011PermissionsofP0VSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(evalDecisionDetails:evalResourceDecision:evalResourceName:matchedStatements:missingContextValues:permissionsBoundaryDecisionDetail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IAMAAV22ResourceSpecificResultV19evalDecisionDetails0ebF00eB4Name17matchedStatements20missingContextValues019permissionsBoundaryF6DetailADSDySSAB016PolicyEvaluationF4TypeOGSg_ALSSSayAB9StatementVGSgSaySSGSgAB011PermissionsofP0VSgtcfc">init(evalDecisionDetails:evalResourceDecision:evalResourceName:matchedStatements:missingContextValues:permissionsBoundaryDecisionDetail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -914,7 +948,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">evalDecisionDetails</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PolicyEvaluationDecisionType.html">PolicyEvaluationDecisionType</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">evalResourceDecision</span><span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PolicyEvaluationDecisionType.html">PolicyEvaluationDecisionType</a></span><span class="p">,</span> <span class="nv">evalResourceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">matchedStatements</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/IAM/Statement.html">Statement</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">missingContextValues</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">evalDecisionDetails</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PolicyEvaluationDecisionType.html">PolicyEvaluationDecisionType</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">evalResourceDecision</span><span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PolicyEvaluationDecisionType.html">PolicyEvaluationDecisionType</a></span><span class="p">,</span> <span class="nv">evalResourceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">matchedStatements</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/IAM/Statement.html">Statement</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">missingContextValues</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">permissionsBoundaryDecisionDetail</span><span class="p">:</span> <span class="kt"><a href="../../Structs/IAM/PermissionsBoundaryDecisionDetail.html">PermissionsBoundaryDecisionDetail</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

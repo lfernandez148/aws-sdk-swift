@@ -752,7 +752,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Cidr"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"CidrAuthorizationContext"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Description"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"DryRun"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">boolean</span><span class="p">),</span> 
+    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"PubliclyAdvertisable"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">boolean</span><span class="p">)</span>
+<span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -772,7 +778,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The public IPv4 address range, in CIDR notation. The most specific prefix that you can specify is /24. The address range cannot overlap with another address range that you&rsquo;ve brought to this or another Region.</p>
+                        <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you&rsquo;ve brought to this or another Region.</p>
 
                       </div>
                       <div class="declaration">
@@ -870,9 +876,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3EC2AAV25ProvisionByoipCidrRequestV4cidr0F20AuthorizationContext11description6dryRunADSS_AB0dgH0VSgSSSgSbSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(cidr:cidrAuthorizationContext:description:dryRun:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3EC2AAV25ProvisionByoipCidrRequestV4cidr0F20AuthorizationContext11description6dryRunADSS_AB0dgH0VSgSSSgSbSgtcfc">init(cidr:cidrAuthorizationContext:description:dryRun:)</a>
+                    <a name="/s:3EC2AAV25ProvisionByoipCidrRequestV20publiclyAdvertisableSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/publiclyAdvertisable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EC2AAV25ProvisionByoipCidrRequestV20publiclyAdvertisableSbSgvp">publiclyAdvertisable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the internet. Default: true</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">publiclyAdvertisable</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3EC2AAV25ProvisionByoipCidrRequestV4cidr0F20AuthorizationContext11description6dryRun20publiclyAdvertisableADSS_AB0dgH0VSgSSSgSbSgANtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(cidr:cidrAuthorizationContext:description:dryRun:publiclyAdvertisable:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3EC2AAV25ProvisionByoipCidrRequestV4cidr0F20AuthorizationContext11description6dryRun20publiclyAdvertisableADSS_AB0dgH0VSgSSSgSbSgANtcfc">init(cidr:cidrAuthorizationContext:description:dryRun:publiclyAdvertisable:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -887,7 +920,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">cidr</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">cidrAuthorizationContext</span><span class="p">:</span> <span class="kt"><a href="../../Structs/EC2/CidrAuthorizationContext.html">CidrAuthorizationContext</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">dryRun</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">cidr</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">cidrAuthorizationContext</span><span class="p">:</span> <span class="kt"><a href="../../Structs/EC2/CidrAuthorizationContext.html">CidrAuthorizationContext</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">dryRun</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">publiclyAdvertisable</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

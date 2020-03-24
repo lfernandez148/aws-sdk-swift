@@ -729,7 +729,7 @@
               </div>
             <p>Client object for interacting with AWS GlobalAccelerator service.</p>
 
-<p>AWS Global Accelerator This is the AWS Global Accelerator API Reference. This guide is for developers who need detailed information about AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the AWS Global Accelerator Developer Guide.  AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience.   You must specify the US-West-2 (Oregon) Region to create or update accelerators.  Global Accelerator provides you with static IP addresses that you associate with your accelerator. These IP addresses are anycast from the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions, which increases the availability of your applications. Endpoints can be Elastic IP addresses, Network Load Balancers, and Application Load Balancers that are located in one AWS Region or multiple Regions. Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is directed to only healthy endpoints. Global Accelerator includes components that work together to help you improve performance and availability for your applications:  Static IP address  AWS Global Accelerator provides you with a set of static IP addresses which are anycast from the AWS edge network and serve as the single fixed entry points for your clients. If you already have Elastic Load Balancing or Elastic IP address resources set up for your applications, you can easily add those to Global Accelerator to allow the resources to be accessed by a Global Accelerator static IP address.  Accelerator  An accelerator directs traffic to optimal endpoints over the AWS global network to improve availability and performance for your internet applications that have a global audience. Each accelerator includes one or more listeners.  Network zone  A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure. When you configure an accelerator, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a network zone becomes unavailable due to IP address blocking by certain client networks, or network disruptions, then client applications can retry on the healthy static IP address from the other isolated network zone.  Listener  A listener processes inbound connections from clients to Global Accelerator, based on the protocol and port that you configure. Each listener has one or more endpoint groups associated with it, and traffic is forwarded to endpoints in one of the groups. You associate endpoint groups with listeners by specifying the Regions that you want to distribute traffic to. Traffic is distributed to optimal endpoints within the endpoint groups associated with a listener.  Endpoint group  Each endpoint group is associated with a specific AWS Region. Endpoint groups include one or more endpoints in the Region. You can increase or reduce the percentage of traffic that would be otherwise directed to an endpoint group by adjusting a setting called a traffic dial. The traffic dial lets you easily do performance testing or blue/green deployment testing for new releases across different AWS Regions, for example.   Endpoint  An endpoint is an Elastic IP address, Network Load Balancer, or Application Load Balancer. Traffic is routed to endpoints based on several factors, including the geo-proximity to the user, the health of the endpoint, and the configuration options that you choose, such as endpoint weights. For each endpoint, you can configure weights, which are numbers that you can use to specify the proportion of traffic to route to each one. This can be useful, for example, to do performance testing within a Region.</p>
+<p>AWS Global Accelerator This is the AWS Global Accelerator API Reference. This guide is for developers who need detailed information about AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the AWS Global Accelerator Developer Guide.  AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local and global users.   You must specify the US West (Oregon) Region to create or update accelerators.  By default, Global Accelerator provides you with static IP addresses that you associate with your accelerator. (Instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator.) The static IP addresses are anycast from the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions, which increases the availability of your applications. Endpoints can be Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses that are located in one AWS Region or multiple Regions. Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is directed to only healthy endpoints. Global Accelerator includes components that work together to help you improve performance and availability for your applications:  Static IP address  By default, AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network and serve as the single fixed entry points for your clients. Or you can configure these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide. If you already have load balancers, EC2 instances, or Elastic IP addresses set up for your applications, you can easily add those to Global Accelerator to allow the resources to be accessed by the static IP addresses.  The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you delete an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see Authentication and Access Control in the AWS Global Accelerator Developer Guide.    Accelerator  An accelerator directs traffic to optimal endpoints over the AWS global network to improve availability and performance for your internet applications that have a global audience. Each accelerator includes one or more listeners.  DNS name  Global Accelerator assigns each accelerator a default Domain Name System (DNS) name, similar to a1234567890abcdef.awsglobalaccelerator.com, that points to your Global Accelerator static IP addresses. Depending on the use case, you can use your accelerator&rsquo;s static IP addresses or DNS name to route traffic to your accelerator, or set up DNS records to route traffic using your own custom domain name.  Network zone  A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure. When you configure an accelerator, by default, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a network zone becomes unavailable due to IP address blocking by certain client networks, or network disruptions, then client applications can retry on the healthy static IP address from the other isolated network zone.  Listener  A listener processes inbound connections from clients to Global Accelerator, based on the protocol and port that you configure. Each listener has one or more endpoint groups associated with it, and traffic is forwarded to endpoints in one of the groups. You associate endpoint groups with listeners by specifying the Regions that you want to distribute traffic to. Traffic is distributed to optimal endpoints within the endpoint groups associated with a listener.  Endpoint group  Each endpoint group is associated with a specific AWS Region. Endpoint groups include one or more endpoints in the Region. You can increase or reduce the percentage of traffic that would be otherwise directed to an endpoint group by adjusting a setting called a traffic dial. The traffic dial lets you easily do performance testing or blue/green deployment testing for new releases across different AWS Regions, for example.   Endpoint  An endpoint is a Network Load Balancer, Application Load Balancer, EC2 instance, or Elastic IP address. Traffic is routed to endpoints based on several factors, including the geo-proximity to the user, the health of the endpoint, and the configuration options that you choose, such as endpoint weights. For each endpoint, you can configure weights, which are numbers that you can use to specify the proportion of traffic to route to each one. This can be useful, for example, to do performance testing within a Region.</p>
 
           </section>
           <section class="section task-group-section">
@@ -912,6 +912,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:17GlobalAcceleratorAAV18advertiseByoipCidry3NIO15EventLoopFutureCyAB09AdvertisedE8ResponseVGAB0jdE7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/advertiseByoipCidr(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV18advertiseByoipCidry3NIO15EventLoopFutureCyAB09AdvertisedE8ResponseVGAB0jdE7RequestVF">advertiseByoipCidr(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Advertises an IPv4 address range that is provisioned for use with your AWS resources through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to the specified addresses starts routing to AWS because of propagation delays. To see an AWS CLI example of advertising an address range, scroll down to Example. To stop advertising the BYOIP address range, use  WithdrawByoipCidr. For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">advertiseByoipCidr</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/AdvertiseByoipCidrRequest.html">AdvertiseByoipCidrRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/AdvertiseByoipCidrResponse.html">AdvertiseByoipCidrResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:17GlobalAcceleratorAAV06createB0y3NIO15EventLoopFutureCyAB06CreateB8ResponseVGAB0hB7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/createAccelerator(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:17GlobalAcceleratorAAV06createB0y3NIO15EventLoopFutureCyAB06CreateB8ResponseVGAB0hB7RequestVF">createAccelerator(_:)</a>
@@ -922,7 +949,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating an accelerator, scroll down to Example.  You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
+                        <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating an accelerator, scroll down to Example. If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you can assign IP addresses from your own pool to your accelerator as the static IP address entry points. Only one IP address from each of your IP address ranges can be used for each accelerator.  You must specify the US West (Oregon) Region to create or update accelerators.</p>
 
                       </div>
                       <div class="declaration">
@@ -1003,7 +1030,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups).</p>
+                        <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups). To disable the accelerator, update the accelerator to set Enabled to false.  When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses. Alternatively, you can bring your own IP address ranges to Global Accelerator and assign IP addresses from those ranges.  The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you delete an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see Authentication and Access Control in the AWS Global Accelerator Developer Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -1077,6 +1104,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:17GlobalAcceleratorAAV20deprovisionByoipCidry3NIO15EventLoopFutureCyAB011DeprovisiondE8ResponseVGAB0jdE7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/deprovisionByoipCidr(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV20deprovisionByoipCidry3NIO15EventLoopFutureCyAB011DeprovisiondE8ResponseVGAB0jdE7RequestVF">deprovisionByoipCidr(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Releases the specified address range that you provisioned to use with your AWS resources through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. To see an AWS CLI example of deprovisioning an address range, scroll down to Example. Before you can release an address range, you must stop advertising it by using WithdrawByoipCidr and you must not have any accelerators that are using static IP addresses allocated from its address range.  For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deprovisionByoipCidr</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/DeprovisionByoipCidrRequest.html">DeprovisionByoipCidrRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/DeprovisionByoipCidrResponse.html">DeprovisionByoipCidrResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:17GlobalAcceleratorAAV08describeB0y3NIO15EventLoopFutureCyAB08DescribeB8ResponseVGAB0hB7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/describeAccelerator(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:17GlobalAcceleratorAAV08describeB0y3NIO15EventLoopFutureCyAB08DescribeB8ResponseVGAB0hB7RequestVF">describeAccelerator(_:)</a>
@@ -1114,7 +1168,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describe the attributes of an accelerator.</p>
+                        <p>Describe the attributes of an accelerator. To see an AWS CLI example of describing the attributes of an accelerator, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1168,7 +1222,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describe a listener.</p>
+                        <p>Describe a listener. To see an AWS CLI example of describing a listener, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1195,7 +1249,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List the accelerators for an AWS account.</p>
+                        <p>List the accelerators for an AWS account. To see an AWS CLI example of listing the accelerators for an AWS account, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1203,6 +1257,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listAccelerators</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/ListAcceleratorsRequest.html">ListAcceleratorsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/ListAcceleratorsResponse.html">ListAcceleratorsResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV14listByoipCidrsy3NIO15EventLoopFutureCyAB04ListdE8ResponseVGAB0jdE7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/listByoipCidrs(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV14listByoipCidrsy3NIO15EventLoopFutureCyAB04ListdE8ResponseVGAB0jdE7RequestVF">listByoipCidrs(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists the IP address ranges that were specified in calls to ProvisionByoipCidr. To see an AWS CLI example of listing BYOIP CIDR addresses, scroll down to Example.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listByoipCidrs</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/ListByoipCidrsRequest.html">ListByoipCidrsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/ListByoipCidrsResponse.html">ListByoipCidrsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1222,7 +1303,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List the endpoint groups that are associated with a listener.</p>
+                        <p>List the endpoint groups that are associated with a listener. To see an AWS CLI example of listing the endpoint groups for listener, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1249,7 +1330,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List the listeners for an accelerator.</p>
+                        <p>List the listeners for an accelerator. To see an AWS CLI example of listing the listeners for an accelerator, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1257,6 +1338,114 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listListeners</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/ListListenersRequest.html">ListListenersRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/ListListenersResponse.html">ListListenersResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV19listTagsForResourcey3NIO15EventLoopFutureCyAB04ListdeF8ResponseVGAB0kdeF7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/listTagsForResource(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV19listTagsForResourcey3NIO15EventLoopFutureCyAB04ListdeF8ResponseVGAB0kdeF7RequestVF">listTagsForResource(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List all tags for an accelerator. To see an AWS CLI example of listing tags for an accelerator, scroll down to Example. For more information, see Tagging in AWS Global Accelerator in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTagsForResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/ListTagsForResourceRequest.html">ListTagsForResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/ListTagsForResourceResponse.html">ListTagsForResourceResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV18provisionByoipCidry3NIO15EventLoopFutureCyAB09ProvisiondE8ResponseVGAB0jdE7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/provisionByoipCidr(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV18provisionByoipCidry3NIO15EventLoopFutureCyAB09ProvisiondE8ResponseVGAB0jdE7RequestVF">provisionByoipCidr(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provisions an IP address range to use with your AWS resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised using  AdvertiseByoipCidr. To see an AWS CLI example of provisioning an address range for BYOIP, scroll down to Example. For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">provisionByoipCidr</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/ProvisionByoipCidrRequest.html">ProvisionByoipCidrRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/ProvisionByoipCidrResponse.html">ProvisionByoipCidrResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV11tagResourcey3NIO15EventLoopFutureCyAB03TagD8ResponseVGAB0iD7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/tagResource(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV11tagResourcey3NIO15EventLoopFutureCyAB03TagD8ResponseVGAB0iD7RequestVF">tagResource(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add tags to an accelerator resource. To see an AWS CLI example of adding tags to an accelerator, scroll down to Example. For more information, see Tagging in AWS Global Accelerator in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/TagResourceRequest.html">TagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/TagResourceResponse.html">TagResourceResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV13untagResourcey3NIO15EventLoopFutureCyAB05UntagD8ResponseVGAB0iD7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/untagResource(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV13untagResourcey3NIO15EventLoopFutureCyAB05UntagD8ResponseVGAB0iD7RequestVF">untagResource(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value. To see an AWS CLI example of removing tags from an accelerator, scroll down to Example. The operation succeeds even if you attempt to remove tags from an accelerator that was already removed. For more information, see Tagging in AWS Global Accelerator in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/UntagResourceRequest.html">UntagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/UntagResourceResponse.html">UntagResourceResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1276,7 +1465,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Update an accelerator. To see an AWS CLI example of updating an accelerator, scroll down to Example.  You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
+                        <p>Update an accelerator. To see an AWS CLI example of updating an accelerator, scroll down to Example.  You must specify the US West (Oregon) Region to create or update accelerators.</p>
 
                       </div>
                       <div class="declaration">
@@ -1357,7 +1546,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Update a listener.</p>
+                        <p>Update a listener. To see an AWS CLI example of updating listener, scroll down to Example.</p>
 
                       </div>
                       <div class="declaration">
@@ -1365,6 +1554,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/UpdateListenerRequest.html">UpdateListenerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/UpdateListenerResponse.html">UpdateListenerResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV17withdrawByoipCidry3NIO15EventLoopFutureCyAB08WithdrawdE8ResponseVGAB0jdE7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/withdrawByoipCidr(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV17withdrawByoipCidry3NIO15EventLoopFutureCyAB08WithdrawdE8ResponseVGAB0jdE7RequestVF">withdrawByoipCidr(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops advertising an address range that is provisioned as an address pool. You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time. To see an AWS CLI example of withdrawing an address range for BYOIP so it will no longer be advertised by AWS, scroll down to Example. It can take a few minutes before traffic to the specified addresses stops routing to AWS because of propagation delays. For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">withdrawByoipCidr</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/GlobalAccelerator/WithdrawByoipCidrRequest.html">WithdrawByoipCidrRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/GlobalAccelerator/WithdrawByoipCidrResponse.html">WithdrawByoipCidrResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1404,6 +1620,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AcceleratorStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV14ByoipCidrStateO"></a>
+                    <a name="//apple_ref/swift/Enum/ByoipCidrState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV14ByoipCidrStateO">ByoipCidrState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ByoipCidrState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ByoipCidrState</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -1543,7 +1787,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="err">`</span><span class="kt">Protocol</span><span class="err">`</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="p">`</span><span class="nv">Protocol</span><span class="p">`</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -1611,6 +1855,118 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AcceleratorAttributes</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV25AdvertiseByoipCidrRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/AdvertiseByoipCidrRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV25AdvertiseByoipCidrRequestV">AdvertiseByoipCidrRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/AdvertiseByoipCidrRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AdvertiseByoipCidrRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV26AdvertiseByoipCidrResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/AdvertiseByoipCidrResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV26AdvertiseByoipCidrResponseV">AdvertiseByoipCidrResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/AdvertiseByoipCidrResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AdvertiseByoipCidrResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV9ByoipCidrV"></a>
+                    <a name="//apple_ref/swift/Struct/ByoipCidr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV9ByoipCidrV">ByoipCidr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ByoipCidr.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ByoipCidr</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV24CidrAuthorizationContextV"></a>
+                    <a name="//apple_ref/swift/Struct/CidrAuthorizationContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV24CidrAuthorizationContextV">CidrAuthorizationContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/CidrAuthorizationContext.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CidrAuthorizationContext</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1863,6 +2219,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeleteListenerRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV27DeprovisionByoipCidrRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DeprovisionByoipCidrRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV27DeprovisionByoipCidrRequestV">DeprovisionByoipCidrRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/DeprovisionByoipCidrRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeprovisionByoipCidrRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV28DeprovisionByoipCidrResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/DeprovisionByoipCidrResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV28DeprovisionByoipCidrResponseV">DeprovisionByoipCidrResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/DeprovisionByoipCidrResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeprovisionByoipCidrResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2264,6 +2676,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:17GlobalAcceleratorAAV21ListByoipCidrsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListByoipCidrsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV21ListByoipCidrsRequestV">ListByoipCidrsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ListByoipCidrsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListByoipCidrsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV22ListByoipCidrsResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/ListByoipCidrsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV22ListByoipCidrsResponseV">ListByoipCidrsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ListByoipCidrsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListByoipCidrsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:17GlobalAcceleratorAAV25ListEndpointGroupsRequestV"></a>
                     <a name="//apple_ref/swift/Struct/ListEndpointGroupsRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:17GlobalAcceleratorAAV25ListEndpointGroupsRequestV">ListEndpointGroupsRequest</a>
@@ -2376,6 +2844,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:17GlobalAcceleratorAAV26ListTagsForResourceRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListTagsForResourceRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV26ListTagsForResourceRequestV">ListTagsForResourceRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ListTagsForResourceRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListTagsForResourceRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV27ListTagsForResourceResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/ListTagsForResourceResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV27ListTagsForResourceResponseV">ListTagsForResourceResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ListTagsForResourceResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListTagsForResourceResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:17GlobalAcceleratorAAV8ListenerV"></a>
                     <a name="//apple_ref/swift/Struct/Listener" class="dashAnchor"></a>
                     <a class="token" href="#/s:17GlobalAcceleratorAAV8ListenerV">Listener</a>
@@ -2423,6 +2947,202 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PortRange</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV25ProvisionByoipCidrRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ProvisionByoipCidrRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV25ProvisionByoipCidrRequestV">ProvisionByoipCidrRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ProvisionByoipCidrRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ProvisionByoipCidrRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV26ProvisionByoipCidrResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/ProvisionByoipCidrResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV26ProvisionByoipCidrResponseV">ProvisionByoipCidrResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/ProvisionByoipCidrResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ProvisionByoipCidrResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV3TagV"></a>
+                    <a name="//apple_ref/swift/Struct/Tag" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV3TagV">Tag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/Tag.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Tag</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV18TagResourceRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/TagResourceRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV18TagResourceRequestV">TagResourceRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/TagResourceRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TagResourceRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV19TagResourceResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/TagResourceResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV19TagResourceResponseV">TagResourceResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/TagResourceResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TagResourceResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV20UntagResourceRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/UntagResourceRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV20UntagResourceRequestV">UntagResourceRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/UntagResourceRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UntagResourceRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV21UntagResourceResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/UntagResourceResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV21UntagResourceResponseV">UntagResourceResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/UntagResourceResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UntagResourceResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2653,13 +3373,69 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV24WithdrawByoipCidrRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/WithdrawByoipCidrRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV24WithdrawByoipCidrRequestV">WithdrawByoipCidrRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/WithdrawByoipCidrRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WithdrawByoipCidrRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17GlobalAcceleratorAAV25WithdrawByoipCidrResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/WithdrawByoipCidrResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17GlobalAcceleratorAAV25WithdrawByoipCidrResponseV">WithdrawByoipCidrResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/GlobalAccelerator/WithdrawByoipCidrResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WithdrawByoipCidrResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

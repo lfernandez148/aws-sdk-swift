@@ -724,7 +724,6 @@
               <div class="declaration">
                 <div class="language">
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeAlarmsInput</span> <span class="p">:</span> <span class="kt"><a href="../../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">DescribeAlarmsInput</span><span class="p">:</span> <span class="kt"><a href="../../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                 </div>
               </div>
@@ -753,14 +752,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"ActionPrefix"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"AlarmNamePrefix"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"AlarmNames"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">member</span><span class="p">:</span><span class="s">"member"</span><span class="p">)),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"MaxRecords"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">integer</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"NextToken"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"StateValue"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="kd">enum</span><span class="p">)</span>
-<span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -780,7 +772,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The action name prefix.</p>
+                        <p>Use this parameter to filter the results of the operation to only those alarms that use a certain alarm action. For example, you could specify the ARN of an SNS topic to find all alarms that send notifications to that topic.</p>
 
                       </div>
                       <div class="declaration">
@@ -807,7 +799,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The alarm name prefix. If this parameter is specified, you cannot specify AlarmNames.</p>
+                        <p>An alarm name prefix. If you specify this parameter, you receive information about all alarms that have names that start with this prefix. If this parameter is specified, you cannot specify AlarmNames.</p>
 
                       </div>
                       <div class="declaration">
@@ -834,7 +826,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The names of the alarms.</p>
+                        <p>The names of the alarms to retrieve information about.</p>
 
                       </div>
                       <div class="declaration">
@@ -842,6 +834,60 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">alarmNames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV10alarmTypesSayAB9AlarmTypeOGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/alarmTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV10alarmTypesSayAB9AlarmTypeOGSgvp">alarmTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">alarmTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/CloudWatch/AlarmType.html">AlarmType</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV19childrenOfAlarmNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/childrenOfAlarmName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV19childrenOfAlarmNameSSSgvp">childrenOfAlarmName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If you use this parameter and specify the name of a composite alarm, the operation returns information about the <q>children</q> alarms of the alarm you specify. These are the metric alarms and composite alarms referenced in the AlarmRule field of the composite alarm that you specify in ChildrenOfAlarmName. Information about the composite alarm that you name in ChildrenOfAlarmName is not returned. If you specify ChildrenOfAlarmName, you cannot specify any other parameters in the request except for MaxRecords and NextToken. If you do so, you will receive a validation error.  Only the Alarm Name, ARN, StateValue (OK/ALARM/INSUFFICIENT_DATA), and StateUpdatedTimestamp information are returned by this operation when you use this parameter. To get complete information about these alarms, perform another DescribeAlarms operation and specify the parent alarm names in the AlarmNames parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">childrenOfAlarmName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -905,6 +951,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV18parentsOfAlarmNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/parentsOfAlarmName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV18parentsOfAlarmNameSSSgvp">parentsOfAlarmName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If you use this parameter and specify the name of a metric or composite alarm, the operation returns information about the <q>parent</q> alarms of the alarm you specify. These are the composite alarms that have AlarmRule parameters that reference the alarm named in ParentsOfAlarmName. Information about the alarm that you specify in ParentsOfAlarmName is not returned. If you specify ParentsOfAlarmName, you cannot specify any other parameters in the request except for MaxRecords and NextToken. If you do so, you will receive a validation error.  Only the Alarm Name and ARN are returned by this operation when you use this parameter. To get complete information about these alarms, perform another DescribeAlarms operation and specify the parent alarm names in the AlarmNames parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">parentsOfAlarmName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV10stateValueAB05StateG0OSgvp"></a>
                     <a name="//apple_ref/swift/Property/stateValue" class="dashAnchor"></a>
                     <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV10stateValueAB05StateG0OSgvp">stateValue</a>
@@ -915,7 +988,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The state value to be used in matching alarms.</p>
+                        <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
 
                       </div>
                       <div class="declaration">
@@ -932,9 +1005,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV12actionPrefix09alarmNameG00H5Names10maxRecords9nextToken10stateValueADSSSg_AKSaySSGSgSiSgAkB05StateP0OSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(actionPrefix:alarmNamePrefix:alarmNames:maxRecords:nextToken:stateValue:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV12actionPrefix09alarmNameG00H5Names10maxRecords9nextToken10stateValueADSSSg_AKSaySSGSgSiSgAkB05StateP0OSgtcfc">init(actionPrefix:alarmNamePrefix:alarmNames:maxRecords:nextToken:stateValue:)</a>
+                    <a name="/s:10CloudWatchAAV19DescribeAlarmsInputV12actionPrefix09alarmNameG00H5Names0H5Types015childrenOfAlarmI010maxRecords9nextToken07parentsmnI010stateValueADSSSg_ANSaySSGSgSayAB0N4TypeOGSgANSiSgA2nB05StateU0OSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(actionPrefix:alarmNamePrefix:alarmNames:alarmTypes:childrenOfAlarmName:maxRecords:nextToken:parentsOfAlarmName:stateValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV19DescribeAlarmsInputV12actionPrefix09alarmNameG00H5Names0H5Types015childrenOfAlarmI010maxRecords9nextToken07parentsmnI010stateValueADSSSg_ANSaySSGSgSayAB0N4TypeOGSgANSiSgA2nB05StateU0OSgtcfc">init(actionPrefix:alarmNamePrefix:alarmNames:alarmTypes:childrenOfAlarmName:maxRecords:nextToken:parentsOfAlarmName:stateValue:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -949,7 +1022,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">actionPrefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">alarmNamePrefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">alarmNames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">maxRecords</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stateValue</span><span class="p">:</span> <span class="kt"><a href="../../Structs/CloudWatch/StateValue.html">StateValue</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">actionPrefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">alarmNamePrefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">alarmNames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">alarmTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/CloudWatch/AlarmType.html">AlarmType</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">childrenOfAlarmName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">maxRecords</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">parentsOfAlarmName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stateValue</span><span class="p">:</span> <span class="kt"><a href="../../Structs/CloudWatch/StateValue.html">StateValue</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1026,7 +1099,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -922,7 +922,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes the specified alarms. You can delete up to 50 alarms in one operation. In the event of an error, no alarms are deleted.</p>
+                        <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can&rsquo;t delete two composite alarms with one operation.  In the event of an error, no alarms are deleted.  It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can&rsquo;t delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete. To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the AlarmRule of one of the alarms to False.  Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.</p>
 
                       </div>
                       <div class="declaration">
@@ -1031,7 +1031,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned. CloudWatch retains the history of an alarm even if you delete the alarm.</p>
+                        <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned. CloudWatch retains the history of an alarm even if you delete the alarm.</p>
 
                       </div>
                       <div class="declaration">
@@ -1058,7 +1058,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the specified alarms. If no alarms are specified, all alarms are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.</p>
+                        <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm name, the alarm state, or a prefix for any action.</p>
 
                       </div>
                       <div class="declaration">
@@ -1330,7 +1330,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can use the GetMetricData API to retrieve as many as 100 different metrics in a single request, with a total of as many as 100,800 data points. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see Metric Math Syntax and Functions in the Amazon CloudWatch User Guide. Calls to the GetMetricData API have a different pricing structure than calls to GetMetricStatistics. For more information about pricing, see Amazon CloudWatch Pricing. Amazon CloudWatch retains metric data as follows:   Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a StorageResolution of 1.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).   Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour. If you omit Unit in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
+                        <p>You can use the GetMetricData API to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see Metric Math Syntax and Functions in the Amazon CloudWatch User Guide. Calls to the GetMetricData API have a different pricing structure than calls to GetMetricStatistics. For more information about pricing, see Amazon CloudWatch Pricing. Amazon CloudWatch retains metric data as follows:   Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a StorageResolution of 1.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).   Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour. If you omit Unit in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
 
                       </div>
                       <div class="declaration">
@@ -1509,6 +1509,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:10CloudWatchAAV17putCompositeAlarmy3NIO15EventLoopFutureCyytGAB03PutdE5InputVF"></a>
+                    <a name="//apple_ref/swift/Method/putCompositeAlarm(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV17putCompositeAlarmy3NIO15EventLoopFutureCyytGAB03PutdE5InputVF">putCompositeAlarm(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates or updates a composite alarm. When you create a composite alarm, you specify a rule expression for the alarm that takes into account the alarm states of other alarms that you have created. The composite alarm goes into ALARM state only if all conditions of the rule are met. The alarms specified in a composite alarm&rsquo;s rule expression can include metric alarms and other composite alarms. Using composite alarms can reduce alarm noise. You can create multiple metric alarms, and also create a composite alarm and set up alerts only for the composite alarm. For example, you could create a composite alarm that goes into ALARM state only when more than one of the underlying metric alarms are in ALARM state. Currently, the only alarm actions that can be taken by composite alarms are notifying SNS topics.  It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can&rsquo;t delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete. To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the AlarmRule of one of the alarms to False.  Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.   When this operation creates an alarm, the alarm state is immediately set to INSUFFICIENT_DATA. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed. For a composite alarm, this initial time after creation is the only time that the alarm can be in INSUFFICIENT_DATA state. When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">putCompositeAlarm</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/PutCompositeAlarmInput.html">PutCompositeAlarmInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:10CloudWatchAAV12putDashboardy3NIO15EventLoopFutureCyAB03PutD6OutputVGAB0iD5InputVF"></a>
                     <a name="//apple_ref/swift/Method/putDashboard(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:10CloudWatchAAV12putDashboardy3NIO15EventLoopFutureCyAB03PutD6OutputVGAB0iD5InputVF">putDashboard(_:)</a>
@@ -1601,7 +1629,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics. You can publish either individual data points in the Value field, or arrays of values and the number of times each value occurred during the period by using the Values and Counts fields in the MetricDatum structure. Using the Values and Counts method enables you to publish up to 150 values per metric with one PutMetricData request, and supports retrieving percentile statistics on this data. Each PutMetricData request is limited to 40 KB in size for HTTP POST requests. You can send a payload compressed by gzip. Each request is also limited to no more than 20 different metrics. Although the Value parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported. You can use up to 10 dimensions per metric to further clarify what data the metric collects. Each dimension consists of a Name and Value pair. For more information about specifying dimensions, see Publishing Metrics in the Amazon CloudWatch User Guide. Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for GetMetricData or GetMetricStatistics from the time they are submitted. CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:   The SampleCount value of the statistic set is 1 and Min, Max, and Sum are all equal.   The Min and Max are equal, and Sum is equal to Min multiplied by SampleCount.</p>
+                        <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics. You can publish either individual data points in the Value field, or arrays of values and the number of times each value occurred during the period by using the Values and Counts fields in the MetricDatum structure. Using the Values and Counts method enables you to publish up to 150 values per metric with one PutMetricData request, and supports retrieving percentile statistics on this data. Each PutMetricData request is limited to 40 KB in size for HTTP POST requests. You can send a payload compressed by gzip. Each request is also limited to no more than 20 different metrics. Although the Value parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported. You can use up to 10 dimensions per metric to further clarify what data the metric collects. Each dimension consists of a Name and Value pair. For more information about specifying dimensions, see Publishing Metrics in the Amazon CloudWatch User Guide. Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for GetMetricData or GetMetricStatistics from the time they are submitted. Data points with time stamps between 3 and 24 hours ago can take as much as 2 hours to become available for for GetMetricData or GetMetricStatistics. CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:   The SampleCount value of the statistic set is 1 and Min, Max, and Sum are all equal.   The Min and Max are equal, and Sum is equal to Min multiplied by SampleCount.</p>
 
                       </div>
                       <div class="declaration">
@@ -1629,7 +1657,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to ALARM sends an SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens quickly, it is typically only visible in the alarm&rsquo;s History tab in the Amazon CloudWatch console or through DescribeAlarmHistory.</p>
+                        <p>Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to ALARM sends an SNS message. Metric alarms returns to their actual state quickly, often within seconds. Because the metric alarm state change happens quickly, it is typically only visible in the alarm&rsquo;s History tab in the Amazon CloudWatch console or through DescribeAlarmHistory. If you use SetAlarmState on a composite alarm, the composite alarm is not guaranteed to return to its actual state. It will return to its actual state only once any of its children alarms change state. It is also re-evaluated if you update its configuration. If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include information in the StateReasonData parameter to enable the policy to take the correct action.</p>
 
                       </div>
                       <div class="declaration">
@@ -1722,14 +1750,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned. CloudWatch retains the history of an alarm even if you delete the alarm.</p>
+                        <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned. CloudWatch retains the history of an alarm even if you delete the alarm.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAlarmHistoryPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmHistoryInput.html">DescribeAlarmHistoryInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmHistoryOutput.html">DescribeAlarmHistoryOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAlarmHistoryPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmHistoryInput.html">DescribeAlarmHistoryInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmHistoryOutput.html">DescribeAlarmHistoryOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1749,14 +1777,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the specified alarms. If no alarms are specified, all alarms are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.</p>
+                        <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm name, the alarm state, or a prefix for any action.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAlarmsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmsInput.html">DescribeAlarmsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmsOutput.html">DescribeAlarmsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeAlarmsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmsInput.html">DescribeAlarmsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeAlarmsOutput.html">DescribeAlarmsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1783,7 +1811,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeInsightRulesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeInsightRulesInput.html">DescribeInsightRulesInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeInsightRulesOutput.html">DescribeInsightRulesOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeInsightRulesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/DescribeInsightRulesInput.html">DescribeInsightRulesInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/DescribeInsightRulesOutput.html">DescribeInsightRulesOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1803,14 +1831,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can use the GetMetricData API to retrieve as many as 100 different metrics in a single request, with a total of as many as 100,800 data points. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see Metric Math Syntax and Functions in the Amazon CloudWatch User Guide. Calls to the GetMetricData API have a different pricing structure than calls to GetMetricStatistics. For more information about pricing, see Amazon CloudWatch Pricing. Amazon CloudWatch retains metric data as follows:   Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a StorageResolution of 1.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).   Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour. If you omit Unit in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
+                        <p>You can use the GetMetricData API to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see Metric Math Syntax and Functions in the Amazon CloudWatch User Guide. Calls to the GetMetricData API have a different pricing structure than calls to GetMetricStatistics. For more information about pricing, see Amazon CloudWatch Pricing. Amazon CloudWatch retains metric data as follows:   Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a StorageResolution of 1.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).   Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour. If you omit Unit in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMetricDataPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/GetMetricDataInput.html">GetMetricDataInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/GetMetricDataOutput.html">GetMetricDataOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMetricDataPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/GetMetricDataInput.html">GetMetricDataInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/GetMetricDataOutput.html">GetMetricDataOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1837,7 +1865,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listDashboardsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/ListDashboardsInput.html">ListDashboardsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/ListDashboardsOutput.html">ListDashboardsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listDashboardsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/ListDashboardsInput.html">ListDashboardsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/ListDashboardsOutput.html">ListDashboardsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1864,7 +1892,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMetricsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/ListMetricsInput.html">ListMetricsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/ListMetricsOutput.html">ListMetricsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMetricsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CloudWatch/ListMetricsInput.html">ListMetricsInput</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CloudWatch/ListMetricsOutput.html">ListMetricsOutput</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1904,7 +1932,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeAlarmHistoryInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">DescribeAlarmHistoryInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1933,7 +1960,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeAlarmsInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">DescribeAlarmsInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1962,7 +1988,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeInsightRulesInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">DescribeInsightRulesInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1991,7 +2016,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetMetricDataInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">GetMetricDataInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2020,7 +2044,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListDashboardsInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">ListDashboardsInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2049,7 +2072,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListMetricsInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CloudWatch.html">CloudWatch</a></span><span class="o">.</span><span class="kt">ListMetricsInput</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2134,6 +2156,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnomalyDetectorConfiguration</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10CloudWatchAAV14CompositeAlarmV"></a>
+                    <a name="//apple_ref/swift/Struct/CompositeAlarm" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV14CompositeAlarmV">CompositeAlarm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/CloudWatch/CompositeAlarm.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CompositeAlarm</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3599,6 +3649,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:10CloudWatchAAV22PutCompositeAlarmInputV"></a>
+                    <a name="//apple_ref/swift/Struct/PutCompositeAlarmInput" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV22PutCompositeAlarmInputV">PutCompositeAlarmInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/CloudWatch/PutCompositeAlarmInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PutCompositeAlarmInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:10CloudWatchAAV17PutDashboardInputV"></a>
                     <a name="//apple_ref/swift/Struct/PutDashboardInput" class="dashAnchor"></a>
                     <a class="token" href="#/s:10CloudWatchAAV17PutDashboardInputV">PutDashboardInput</a>
@@ -4002,6 +4080,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:10CloudWatchAAV9AlarmTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/AlarmType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10CloudWatchAAV9AlarmTypeO">AlarmType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/CloudWatch/AlarmType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AlarmType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:10CloudWatchAAV25AnomalyDetectorStateValueO"></a>
                     <a name="//apple_ref/swift/Enum/AnomalyDetectorStateValue" class="dashAnchor"></a>
                     <a class="token" href="#/s:10CloudWatchAAV25AnomalyDetectorStateValueO">AnomalyDetectorStateValue</a>
@@ -4229,7 +4335,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -2418,7 +2418,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the Username parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, InvalidParameterException is thrown. To use the confirmation code for resetting the password, call .</p>
+                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the Username parameter, you can use the username or user alias. The method used to send the confirmation code is sent according to the specified AccountRecoverySetting. For more information, see Recovering User Accounts in the Amazon Cognito Developer Guide. If neither a verified phone number nor a verified email exists, an InvalidParameterException is thrown. To use the confirmation code for resetting the password, call .</p>
 
                       </div>
                       <div class="declaration">
@@ -3579,7 +3579,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Use this API to register a user&rsquo;s entered TOTP code and mark the user&rsquo;s software token MFA status as &ldquo;verified&rdquo; if successful. The request takes an access token or a session string, but not both.</p>
+                        <p>Use this API to register a user&rsquo;s entered TOTP code and mark the user&rsquo;s software token MFA status as <q>verified</q> if successful. The request takes an access token or a session string, but not both.</p>
 
                       </div>
                       <div class="declaration">
@@ -3651,7 +3651,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adminListGroupsForUserPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListGroupsForUserRequest.html">AdminListGroupsForUserRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListGroupsForUserResponse.html">AdminListGroupsForUserResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adminListGroupsForUserPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListGroupsForUserRequest.html">AdminListGroupsForUserRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListGroupsForUserResponse.html">AdminListGroupsForUserResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3678,7 +3678,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adminListUserAuthEventsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListUserAuthEventsRequest.html">AdminListUserAuthEventsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListUserAuthEventsResponse.html">AdminListUserAuthEventsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adminListUserAuthEventsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListUserAuthEventsRequest.html">AdminListUserAuthEventsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/AdminListUserAuthEventsResponse.html">AdminListUserAuthEventsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3705,7 +3705,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListGroupsRequest.html">ListGroupsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListGroupsResponse.html">ListGroupsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListGroupsRequest.html">ListGroupsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListGroupsResponse.html">ListGroupsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3732,7 +3732,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listIdentityProvidersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListIdentityProvidersRequest.html">ListIdentityProvidersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListIdentityProvidersResponse.html">ListIdentityProvidersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listIdentityProvidersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListIdentityProvidersRequest.html">ListIdentityProvidersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListIdentityProvidersResponse.html">ListIdentityProvidersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3759,7 +3759,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listResourceServersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListResourceServersRequest.html">ListResourceServersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListResourceServersResponse.html">ListResourceServersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listResourceServersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListResourceServersRequest.html">ListResourceServersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListResourceServersResponse.html">ListResourceServersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3786,7 +3786,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUserPoolClientsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolClientsRequest.html">ListUserPoolClientsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolClientsResponse.html">ListUserPoolClientsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUserPoolClientsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolClientsRequest.html">ListUserPoolClientsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolClientsResponse.html">ListUserPoolClientsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3813,7 +3813,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUserPoolsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolsRequest.html">ListUserPoolsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolsResponse.html">ListUserPoolsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUserPoolsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolsRequest.html">ListUserPoolsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUserPoolsResponse.html">ListUserPoolsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3840,7 +3840,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUsersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersRequest.html">ListUsersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersResponse.html">ListUsersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUsersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersRequest.html">ListUsersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersResponse.html">ListUsersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3867,7 +3867,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUsersInGroupPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersInGroupRequest.html">ListUsersInGroupRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersInGroupResponse.html">ListUsersInGroupResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listUsersInGroupPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersInGroupRequest.html">ListUsersInGroupRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/CognitoIdentityProvider/ListUsersInGroupResponse.html">ListUsersInGroupResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3907,7 +3907,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AdminListGroupsForUserRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">AdminListGroupsForUserRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3936,7 +3935,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AdminListUserAuthEventsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">AdminListUserAuthEventsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3965,7 +3963,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListGroupsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListGroupsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3994,7 +3991,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListIdentityProvidersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListIdentityProvidersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4023,7 +4019,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListResourceServersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListResourceServersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4052,7 +4047,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListUserPoolClientsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListUserPoolClientsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4081,7 +4075,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListUserPoolsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListUserPoolsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4110,7 +4103,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListUsersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListUsersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4139,7 +4131,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListUsersInGroupRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/CognitoIdentityProvider.html">CognitoIdentityProvider</a></span><span class="o">.</span><span class="kt">ListUsersInGroupRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10729,6 +10720,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:23CognitoIdentityProviderAAV25UsernameConfigurationTypeV"></a>
+                    <a name="//apple_ref/swift/Struct/UsernameConfigurationType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23CognitoIdentityProviderAAV25UsernameConfigurationTypeV">UsernameConfigurationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/CognitoIdentityProvider/UsernameConfigurationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UsernameConfigurationType</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:23CognitoIdentityProviderAAV31VerificationMessageTemplateTypeV"></a>
                     <a name="//apple_ref/swift/Struct/VerificationMessageTemplateType" class="dashAnchor"></a>
                     <a class="token" href="#/s:23CognitoIdentityProviderAAV31VerificationMessageTemplateTypeV">VerificationMessageTemplateType</a>
@@ -11807,7 +11826,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

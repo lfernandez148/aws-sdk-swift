@@ -1003,7 +1003,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes multiple tables at once.  After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these &ldquo;orphaned&rdquo; resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling BatchDeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and DeletePartition or BatchDeletePartition, to delete any resources that belong to the table.</p>
+                        <p>Deletes multiple tables at once.  After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these <q>orphaned</q> resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling BatchDeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and DeletePartition or BatchDeletePartition, to delete any resources that belong to the table.</p>
 
                       </div>
                       <div class="declaration">
@@ -1732,7 +1732,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes a specified database from a Data Catalog.  After completing this operation, you no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these &ldquo;orphaned&rdquo; resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling DeleteDatabase, use DeleteTableVersion or BatchDeleteTableVersion, DeletePartition or BatchDeletePartition, DeleteUserDefinedFunction, and DeleteTable or BatchDeleteTable, to delete any resources that belong to the database.</p>
+                        <p>Removes a specified database from a Data Catalog.  After completing this operation, you no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these <q>orphaned</q> resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling DeleteDatabase, use DeleteTableVersion or BatchDeleteTableVersion, DeletePartition or BatchDeletePartition, DeleteUserDefinedFunction, and DeleteTable or BatchDeleteTable, to delete any resources that belong to the database.</p>
 
                       </div>
                       <div class="declaration">
@@ -1921,7 +1921,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes a table definition from the Data Catalog.  After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these &ldquo;orphaned&rdquo; resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling DeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and DeletePartition or BatchDeletePartition, to delete any resources that belong to the table.</p>
+                        <p>Removes a table definition from the Data Catalog.  After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these <q>orphaned</q> resources asynchronously in a timely manner, at the discretion of the service. To ensure the immediate deletion of all related resources, before calling DeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and DeletePartition or BatchDeletePartition, to delete any resources that belong to the table.</p>
 
                       </div>
                       <div class="declaration">
@@ -3315,6 +3315,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:4GlueAAV16listMLTransformsy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/listMLTransforms(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GlueAAV16listMLTransformsy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF">listMLTransforms(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a sortable, filterable list of existing AWS Glue machine learning transforms in this AWS account, or the resources with the specified tag. This operation takes the optional Tags field, which you can use as a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag filtering, only resources with the tags are retrieved.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMLTransforms</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListMLTransformsRequest.html">ListMLTransformsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Glue/ListMLTransformsResponse.html">ListMLTransformsResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:4GlueAAV12listTriggersy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/listTriggers(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:4GlueAAV12listTriggersy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF">listTriggers(_:)</a>
@@ -3676,7 +3703,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts the active learning workflow for your machine learning transform to improve the transform&rsquo;s quality by generating label sets and adding labels. When the StartMLLabelingSetGenerationTaskRun finishes, AWS Glue will have generated a &ldquo;labeling set&rdquo; or a set of questions for humans to answer. In the case of the FindMatches transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?”  After the labeling process is finished, you can upload your labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation.</p>
+                        <p>Starts the active learning workflow for your machine learning transform to improve the transform&rsquo;s quality by generating label sets and adding labels. When the StartMLLabelingSetGenerationTaskRun finishes, AWS Glue will have generated a <q>labeling set</q> or a set of questions for humans to answer. In the case of the FindMatches transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?”  After the labeling process is finished, you can upload your labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation.</p>
 
                       </div>
                       <div class="declaration">
@@ -4261,7 +4288,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getClassifiersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetClassifiersRequest.html">GetClassifiersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetClassifiersResponse.html">GetClassifiersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getClassifiersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetClassifiersRequest.html">GetClassifiersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetClassifiersResponse.html">GetClassifiersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4288,7 +4315,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getConnectionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetConnectionsRequest.html">GetConnectionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetConnectionsResponse.html">GetConnectionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getConnectionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetConnectionsRequest.html">GetConnectionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetConnectionsResponse.html">GetConnectionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4315,7 +4342,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCrawlerMetricsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetCrawlerMetricsRequest.html">GetCrawlerMetricsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetCrawlerMetricsResponse.html">GetCrawlerMetricsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCrawlerMetricsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetCrawlerMetricsRequest.html">GetCrawlerMetricsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetCrawlerMetricsResponse.html">GetCrawlerMetricsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4342,7 +4369,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCrawlersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetCrawlersRequest.html">GetCrawlersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetCrawlersResponse.html">GetCrawlersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCrawlersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetCrawlersRequest.html">GetCrawlersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetCrawlersResponse.html">GetCrawlersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4369,7 +4396,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDatabasesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetDatabasesRequest.html">GetDatabasesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetDatabasesResponse.html">GetDatabasesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDatabasesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetDatabasesRequest.html">GetDatabasesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetDatabasesResponse.html">GetDatabasesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4396,7 +4423,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDevEndpointsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetDevEndpointsRequest.html">GetDevEndpointsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetDevEndpointsResponse.html">GetDevEndpointsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDevEndpointsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetDevEndpointsRequest.html">GetDevEndpointsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetDevEndpointsResponse.html">GetDevEndpointsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4423,7 +4450,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getJobRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetJobRunsRequest.html">GetJobRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetJobRunsResponse.html">GetJobRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getJobRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetJobRunsRequest.html">GetJobRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetJobRunsResponse.html">GetJobRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4450,7 +4477,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getJobsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetJobsRequest.html">GetJobsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetJobsResponse.html">GetJobsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getJobsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetJobsRequest.html">GetJobsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetJobsResponse.html">GetJobsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4477,7 +4504,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMLTaskRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetMLTaskRunsRequest.html">GetMLTaskRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetMLTaskRunsResponse.html">GetMLTaskRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMLTaskRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetMLTaskRunsRequest.html">GetMLTaskRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetMLTaskRunsResponse.html">GetMLTaskRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4504,7 +4531,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMLTransformsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetMLTransformsRequest.html">GetMLTransformsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetMLTransformsResponse.html">GetMLTransformsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMLTransformsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetMLTransformsRequest.html">GetMLTransformsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetMLTransformsResponse.html">GetMLTransformsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4531,7 +4558,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPartitionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetPartitionsRequest.html">GetPartitionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetPartitionsResponse.html">GetPartitionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPartitionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetPartitionsRequest.html">GetPartitionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetPartitionsResponse.html">GetPartitionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4558,7 +4585,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSecurityConfigurationsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetSecurityConfigurationsRequest.html">GetSecurityConfigurationsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetSecurityConfigurationsResponse.html">GetSecurityConfigurationsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSecurityConfigurationsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetSecurityConfigurationsRequest.html">GetSecurityConfigurationsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetSecurityConfigurationsResponse.html">GetSecurityConfigurationsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4585,7 +4612,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTableVersionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTableVersionsRequest.html">GetTableVersionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTableVersionsResponse.html">GetTableVersionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTableVersionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTableVersionsRequest.html">GetTableVersionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTableVersionsResponse.html">GetTableVersionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4612,7 +4639,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTablesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTablesRequest.html">GetTablesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTablesResponse.html">GetTablesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTablesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTablesRequest.html">GetTablesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTablesResponse.html">GetTablesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4639,7 +4666,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTriggersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTriggersRequest.html">GetTriggersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTriggersResponse.html">GetTriggersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTriggersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetTriggersRequest.html">GetTriggersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetTriggersResponse.html">GetTriggersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4666,7 +4693,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserDefinedFunctionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetUserDefinedFunctionsRequest.html">GetUserDefinedFunctionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetUserDefinedFunctionsResponse.html">GetUserDefinedFunctionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserDefinedFunctionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetUserDefinedFunctionsRequest.html">GetUserDefinedFunctionsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetUserDefinedFunctionsResponse.html">GetUserDefinedFunctionsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4693,7 +4720,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getWorkflowRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetWorkflowRunsRequest.html">GetWorkflowRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetWorkflowRunsResponse.html">GetWorkflowRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getWorkflowRunsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/GetWorkflowRunsRequest.html">GetWorkflowRunsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/GetWorkflowRunsResponse.html">GetWorkflowRunsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4720,7 +4747,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listCrawlersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListCrawlersRequest.html">ListCrawlersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListCrawlersResponse.html">ListCrawlersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listCrawlersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListCrawlersRequest.html">ListCrawlersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListCrawlersResponse.html">ListCrawlersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4747,7 +4774,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listDevEndpointsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListDevEndpointsRequest.html">ListDevEndpointsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListDevEndpointsResponse.html">ListDevEndpointsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listDevEndpointsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListDevEndpointsRequest.html">ListDevEndpointsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListDevEndpointsResponse.html">ListDevEndpointsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4774,7 +4801,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listJobsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListJobsRequest.html">ListJobsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListJobsResponse.html">ListJobsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listJobsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListJobsRequest.html">ListJobsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListJobsResponse.html">ListJobsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GlueAAV25listMLTransformsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listMLTransformsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GlueAAV25listMLTransformsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListC7RequestV_AGySbGAB0kC8ResponseV_AE0hI0_ptctF">listMLTransformsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a sortable, filterable list of existing AWS Glue machine learning transforms in this AWS account, or the resources with the specified tag. This operation takes the optional Tags field, which you can use as a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag filtering, only resources with the tags are retrieved.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMLTransformsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListMLTransformsRequest.html">ListMLTransformsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListMLTransformsResponse.html">ListMLTransformsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4801,7 +4855,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTriggersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListTriggersRequest.html">ListTriggersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListTriggersResponse.html">ListTriggersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listTriggersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListTriggersRequest.html">ListTriggersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListTriggersResponse.html">ListTriggersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4828,7 +4882,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkflowsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListWorkflowsRequest.html">ListWorkflowsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListWorkflowsResponse.html">ListWorkflowsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listWorkflowsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/ListWorkflowsRequest.html">ListWorkflowsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/ListWorkflowsResponse.html">ListWorkflowsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4855,7 +4909,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">searchTablesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/SearchTablesRequest.html">SearchTablesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/SearchTablesResponse.html">SearchTablesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">searchTablesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Glue/SearchTablesRequest.html">SearchTablesRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Glue/SearchTablesResponse.html">SearchTablesResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -4895,7 +4949,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetClassifiersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetClassifiersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4924,7 +4977,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetConnectionsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetConnectionsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4953,7 +5005,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetCrawlerMetricsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetCrawlerMetricsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4982,7 +5033,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetCrawlersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetCrawlersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5011,7 +5061,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetDatabasesRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetDatabasesRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5040,7 +5089,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetDevEndpointsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetDevEndpointsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5069,7 +5117,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetJobRunsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetJobRunsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5098,7 +5145,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetJobsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetJobsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5127,7 +5173,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetMLTaskRunsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetMLTaskRunsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5156,7 +5201,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetMLTransformsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetMLTransformsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5185,7 +5229,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetPartitionsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetPartitionsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5214,7 +5257,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetSecurityConfigurationsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetSecurityConfigurationsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5243,7 +5285,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetTableVersionsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetTableVersionsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5272,7 +5313,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetTablesRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetTablesRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5301,7 +5341,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetTriggersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetTriggersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5330,7 +5369,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetUserDefinedFunctionsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetUserDefinedFunctionsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5359,7 +5397,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetWorkflowRunsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">GetWorkflowRunsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5388,7 +5425,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListCrawlersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">ListCrawlersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5417,7 +5453,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListDevEndpointsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">ListDevEndpointsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5446,7 +5481,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListJobsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">ListJobsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GlueAAV23ListMLTransformsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListMLTransformsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GlueAAV23ListMLTransformsRequestV">ListMLTransformsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Glue/ListMLTransformsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListMLTransformsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5475,7 +5537,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListTriggersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">ListTriggersRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5504,7 +5565,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListWorkflowsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">ListWorkflowsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5533,7 +5593,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchTablesRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Glue.html">Glue</a></span><span class="o">.</span><span class="kt">SearchTablesRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11647,6 +11706,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:4GlueAAV24ListMLTransformsResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/ListMLTransformsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GlueAAV24ListMLTransformsResponseV">ListMLTransformsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Glue/ListMLTransformsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListMLTransformsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:4GlueAAV20ListTriggersResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListTriggersResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:4GlueAAV20ListTriggersResponseV">ListTriggersResponse</a>
@@ -15945,7 +16032,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

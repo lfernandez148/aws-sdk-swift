@@ -752,15 +752,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"ApplicationId"</span><span class="p">,</span> <span class="nv">location</span><span class="p">:</span> <span class="o">.</span><span class="nf">uri</span><span class="p">(</span><span class="nv">locationName</span><span class="p">:</span> <span class="s">"ApplicationId"</span><span class="p">),</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Description"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"LocationUri"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Name"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"RetrievalRoleArn"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Tags"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">map</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Validators"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">list</span><span class="p">)</span>
-<span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -834,7 +826,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A URI to locate the configuration. You can specify either a Systems Manager (SSM) document or an SSM Parameter Store parameter. For an SSM document, specify either the document name in the format ssm-document://&lt;Document name&gt; or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format ssm-parameter://&lt;Parameter name&gt; or the ARN.</p>
+                        <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the document name in the format ssm-document://&lt;Document_name&gt; or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format ssm-parameter://&lt;Parameter_name&gt; or the ARN. For an Amazon S3 object, specify the URI in the following format: s3://&lt;bucket&gt;/&lt;objectKey&gt; . Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</p>
 
                       </div>
                       <div class="declaration">
@@ -1015,7 +1007,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

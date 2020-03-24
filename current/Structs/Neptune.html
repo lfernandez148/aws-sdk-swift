@@ -1059,7 +1059,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared manual DB cluster snapshot, SourceDBClusterSnapshotIdentifier must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot. You can&rsquo;t copy from one AWS Region to another.</p>
+                        <p>Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared manual DB cluster snapshot, SourceDBClusterSnapshotIdentifier must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
 
                       </div>
                       <div class="declaration">
@@ -1113,7 +1113,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new Amazon Neptune DB cluster. You can use the ReplicationSourceIdentifier parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
+                        <p>Creates a new Amazon Neptune DB cluster. You can use the ReplicationSourceIdentifier parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance. Note that when you create a new cluster using CreateDBCluster directly, deletion protection is disabled by default (when you create a new production cluster in the console, deletion protection is enabled by default). You can only delete a DB cluster if its DeletionProtection field is set to false.</p>
 
                       </div>
                       <div class="declaration">
@@ -1302,7 +1302,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can&rsquo;t be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+                        <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can&rsquo;t be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted. Note that the DB Cluster cannot be deleted if deletion protection is enabled. To delete it, you must first set its DeletionProtection field to False.</p>
 
                       </div>
                       <div class="declaration">
@@ -1384,7 +1384,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can&rsquo;t be recovered. Manual DB snapshots of the DB instance to be deleted by DeleteDBInstance are not deleted.  If you request a final DB snapshot the status of the Amazon Neptune DB instance is deleting until the DB snapshot is created. The API action DescribeDBInstance is used to monitor the status of this operation. The action can&rsquo;t be canceled or reverted once submitted. Note that when a DB instance is in a failure state and has a status of failed, incompatible-restore, or incompatible-network, you can only delete it when the SkipFinalSnapshot parameter is set to true. You can&rsquo;t delete a DB instance if it is the only instance in the DB cluster.</p>
+                        <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can&rsquo;t be recovered. Manual DB snapshots of the DB instance to be deleted by DeleteDBInstance are not deleted.  If you request a final DB snapshot the status of the Amazon Neptune DB instance is deleting until the DB snapshot is created. The API action DescribeDBInstance is used to monitor the status of this operation. The action can&rsquo;t be canceled or reverted once submitted. Note that when a DB instance is in a failure state and has a status of failed, incompatible-restore, or incompatible-network, you can only delete it when the SkipFinalSnapshot parameter is set to true. You can&rsquo;t delete a DB instance if it is the only instance in the DB cluster, or if it has deletion protection enabled.</p>
 
                       </div>
                       <div class="declaration">
@@ -1602,7 +1602,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
+                        <p>Returns information about provisioned DB clusters, and supports pagination.  This operation can also return information for Amazon RDS clusters and Amazon DocDB clusters.</p>
 
                       </div>
                       <div class="declaration">
@@ -1656,7 +1656,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about provisioned instances. This API supports pagination.</p>
+                        <p>Returns information about provisioned instances, and supports pagination.  This operation can also return information for Amazon RDS instances and Amazon DocDB instances.</p>
 
                       </div>
                       <div class="declaration">
@@ -2455,6 +2455,60 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7NeptuneAAV14startDBClustery3NIO15EventLoopFutureCyAB05StartC6ResultVGAB0hC7MessageVF"></a>
+                    <a name="//apple_ref/swift/Method/startDBCluster(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV14startDBClustery3NIO15EventLoopFutureCyAB05StartC6ResultVGAB0hC7MessageVF">startDBCluster(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts an Amazon Neptune DB cluster that was stopped using the AWS console, the AWS CLI stop-db-cluster command, or the StopDBCluster API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startDBCluster</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/StartDBClusterMessage.html">StartDBClusterMessage</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Neptune/StartDBClusterResult.html">StartDBClusterResult</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7NeptuneAAV13stopDBClustery3NIO15EventLoopFutureCyAB04StopC6ResultVGAB0hC7MessageVF"></a>
+                    <a name="//apple_ref/swift/Method/stopDBCluster(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV13stopDBClustery3NIO15EventLoopFutureCyAB04StopC6ResultVGAB0hC7MessageVF">stopDBCluster(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune retains the DB cluster&rsquo;s metadata, including its endpoints and DB parameter groups. Neptune also retains the transaction logs so you can do a point-in-time restore if necessary.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopDBCluster</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/StopDBClusterMessage.html">StopDBClusterMessage</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Neptune/StopDBClusterResult.html">StopDBClusterResult</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -2486,7 +2540,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBEngineVersionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBEngineVersionsMessage.html">DescribeDBEngineVersionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBEngineVersionMessage.html">DBEngineVersionMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBEngineVersionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBEngineVersionsMessage.html">DescribeDBEngineVersionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBEngineVersionMessage.html">DBEngineVersionMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2506,14 +2560,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about provisioned instances. This API supports pagination.</p>
+                        <p>Returns information about provisioned instances, and supports pagination.  This operation can also return information for Amazon RDS instances and Amazon DocDB instances.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBInstancesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBInstancesMessage.html">DescribeDBInstancesMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBInstanceMessage.html">DBInstanceMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBInstancesPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBInstancesMessage.html">DescribeDBInstancesMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBInstanceMessage.html">DBInstanceMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2540,7 +2594,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBParameterGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBParameterGroupsMessage.html">DescribeDBParameterGroupsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBParameterGroupsMessage.html">DBParameterGroupsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBParameterGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBParameterGroupsMessage.html">DescribeDBParameterGroupsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBParameterGroupsMessage.html">DBParameterGroupsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2567,7 +2621,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBParametersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBParametersMessage.html">DescribeDBParametersMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBParameterGroupDetails.html">DBParameterGroupDetails</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBParametersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBParametersMessage.html">DescribeDBParametersMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBParameterGroupDetails.html">DBParameterGroupDetails</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2594,7 +2648,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBSubnetGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBSubnetGroupsMessage.html">DescribeDBSubnetGroupsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBSubnetGroupMessage.html">DBSubnetGroupMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDBSubnetGroupsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeDBSubnetGroupsMessage.html">DescribeDBSubnetGroupsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DBSubnetGroupMessage.html">DBSubnetGroupMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2621,7 +2675,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEngineDefaultParametersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEngineDefaultParametersMessage.html">DescribeEngineDefaultParametersMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DescribeEngineDefaultParametersResult.html">DescribeEngineDefaultParametersResult</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEngineDefaultParametersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEngineDefaultParametersMessage.html">DescribeEngineDefaultParametersMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/DescribeEngineDefaultParametersResult.html">DescribeEngineDefaultParametersResult</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2648,7 +2702,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEventSubscriptionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEventSubscriptionsMessage.html">DescribeEventSubscriptionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/EventSubscriptionsMessage.html">EventSubscriptionsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEventSubscriptionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEventSubscriptionsMessage.html">DescribeEventSubscriptionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/EventSubscriptionsMessage.html">EventSubscriptionsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2675,7 +2729,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEventsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEventsMessage.html">DescribeEventsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/EventsMessage.html">EventsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeEventsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeEventsMessage.html">DescribeEventsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/EventsMessage.html">EventsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2702,7 +2756,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeOrderableDBInstanceOptionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeOrderableDBInstanceOptionsMessage.html">DescribeOrderableDBInstanceOptionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/OrderableDBInstanceOptionsMessage.html">OrderableDBInstanceOptionsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeOrderableDBInstanceOptionsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/Neptune/DescribeOrderableDBInstanceOptionsMessage.html">DescribeOrderableDBInstanceOptionsMessage</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Neptune/OrderableDBInstanceOptionsMessage.html">OrderableDBInstanceOptionsMessage</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2742,7 +2796,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDBEngineVersionsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeDBEngineVersionsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2771,7 +2824,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDBInstancesMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeDBInstancesMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2800,7 +2852,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDBParameterGroupsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeDBParameterGroupsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2829,7 +2880,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDBParametersMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeDBParametersMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2858,7 +2908,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDBSubnetGroupsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeDBSubnetGroupsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2887,7 +2936,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeEngineDefaultParametersMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeEngineDefaultParametersMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2916,7 +2964,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeEventSubscriptionsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeEventSubscriptionsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2945,7 +2992,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeEventsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeEventsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2974,7 +3020,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeOrderableDBInstanceOptionsMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/Neptune.html">Neptune</a></span><span class="o">.</span><span class="kt">DescribeOrderableDBInstanceOptionsMessage</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6596,6 +6641,118 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:7NeptuneAAV21StartDBClusterMessageV"></a>
+                    <a name="//apple_ref/swift/Struct/StartDBClusterMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV21StartDBClusterMessageV">StartDBClusterMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Neptune/StartDBClusterMessage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StartDBClusterMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7NeptuneAAV20StartDBClusterResultV"></a>
+                    <a name="//apple_ref/swift/Struct/StartDBClusterResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV20StartDBClusterResultV">StartDBClusterResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Neptune/StartDBClusterResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StartDBClusterResult</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7NeptuneAAV20StopDBClusterMessageV"></a>
+                    <a name="//apple_ref/swift/Struct/StopDBClusterMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV20StopDBClusterMessageV">StopDBClusterMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Neptune/StopDBClusterMessage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StopDBClusterMessage</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7NeptuneAAV19StopDBClusterResultV"></a>
+                    <a name="//apple_ref/swift/Struct/StopDBClusterResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7NeptuneAAV19StopDBClusterResultV">StopDBClusterResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Neptune/StopDBClusterResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StopDBClusterResult</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:7NeptuneAAV6SubnetV"></a>
                     <a name="//apple_ref/swift/Struct/Subnet" class="dashAnchor"></a>
                     <a class="token" href="#/s:7NeptuneAAV6SubnetV">Subnet</a>
@@ -6890,7 +7047,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -752,15 +752,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"customerDefinedValues"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">map</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"dataSetPublicationDate"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">timestamp</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"dataSetType"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="kd">enum</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"destinationS3BucketName"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"destinationS3Prefix"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"roleNameArn"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"snsTopicArn"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">string</span><span class="p">)</span>
-<span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -807,7 +799,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date a data set was published. For daily data sets, provide a date with day-level granularity for the desired day. For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored). For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).</p>
+                        <p>The date a data set was published. For daily data sets, provide a date with day-level granularity for the desired day. For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored). For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).</p>
 
                       </div>
                       <div class="declaration">
@@ -888,7 +880,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name &ldquo;mybucket&rdquo; and the prefix &ldquo;myprefix/mydatasets&rdquo;, the output file &ldquo;outputfile&rdquo; would be published to &ldquo;s3://mybucket/myprefix/mydatasets/outputfile&rdquo;. If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.</p>
+                        <p>(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name <q>mybucket</q> and the prefix <q>myprefix/mydatasets</q>, the output file <q>outputfile</q> would be published to <q>s3://mybucket/myprefix/mydatasets/outputfile</q>. If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.</p>
 
                       </div>
                       <div class="declaration">
@@ -1015,7 +1007,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

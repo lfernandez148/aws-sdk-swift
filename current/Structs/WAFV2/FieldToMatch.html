@@ -752,15 +752,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"AllQueryArguments"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Body"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"Method"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"QueryString"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"SingleHeader"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"SingleQueryArgument"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">),</span> 
-    <span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"UriPath"</span><span class="p">,</span> <span class="nv">required</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">structure</span><span class="p">)</span>
-<span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_members</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/AWSShapeMember.html">AWSShapeMember</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -807,7 +799,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.  Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection. If you don&rsquo;t need to inspect more than 8 KB, you can guarantee that you don&rsquo;t allow additional bytes in by combining a statement that inspects the body of the web request, such as ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn&rsquo;t support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>
+                        <p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.  Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don&rsquo;t need to inspect more than 8 KB, you can guarantee that you don&rsquo;t allow additional bytes in by combining a statement that inspects the body of the web request, such as ByteMatchStatement or RegexPatternSetReferenceStatement, with a SizeConstraintStatement that enforces an 8 KB size limit on the body of the request. AWS WAF doesn&rsquo;t support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>
 
                       </div>
                       <div class="declaration">
@@ -915,7 +907,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspect a single query argument. Provide the name of the query argument to inspect, such as UserName or SalesRegion. The name can be up to 30 characters long and isn&rsquo;t case sensitive.</p>
+                        <p>Inspect a single query argument. Provide the name of the query argument to inspect, such as UserName or SalesRegion. The name can be up to 30 characters long and isn&rsquo;t case sensitive.  This is used only to indicate the web request component for AWS WAF to inspect, in the FieldToMatch specification.</p>
 
                       </div>
                       <div class="declaration">
@@ -1015,7 +1007,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -729,7 +729,7 @@
               </div>
             <p>Client object for interacting with AWS SecurityHub service.</p>
 
-<p>Security Hub provides you with a comprehensive view of the security state of your AWS environment and resources. It also provides you with the compliance status of your environment based on CIS AWS Foundations compliance checks. Security Hub collects security data from AWS accounts, services, and integrated third-party products and helps you analyze security trends in your environment to identify the highest priority security issues. For more information about Security Hub, see the  AWS Security Hub User Guide . When you use operations in the Security Hub API, the requests are executed only in the AWS Region that is currently active or in the specific AWS Region that you specify in your request. Any configuration or settings change that results from the operation is applied only to that Region. To make the same change in other Regions, execute the same command for each Region to apply the change to. For example, if your Region is set to us-west-2, when you use CreateMembers to add a member account to Security Hub, the association of the member account with the master account is created only in the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that the invite was sent from. The following throttling limits apply to using Security Hub API operations:    GetFindings - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.    UpdateFindings - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.   All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>
+<p>Security Hub provides you with a comprehensive view of the security state of your AWS environment and resources. It also provides you with the readiness status of your environment based on controls from supported security standards. Security Hub collects security data from AWS accounts, services, and integrated third-party products and helps you analyze security trends in your environment to identify the highest priority security issues. For more information about Security Hub, see the  AWS Security Hub User Guide . When you use operations in the Security Hub API, the requests are executed only in the AWS Region that is currently active or in the specific AWS Region that you specify in your request. Any configuration or settings change that results from the operation is applied only to that Region. To make the same change in other Regions, execute the same command for each Region to apply the change to. For example, if your Region is set to us-west-2, when you use  CreateMembers  to add a member account to Security Hub, the association of the member account with the master account is created only in the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that the invitation was sent from. The following throttling limits apply to using Security Hub API operations.     GetFindings  - RateLimit of 3 requests per second. BurstLimit of 6 requests per second.     UpdateFindings  - RateLimit of 1 request per second. BurstLimit of 5 requests per second.   All other operations - RateLimit of 10 requests per second. BurstLimit of 30 requests per second.</p>
 
           </section>
           <section class="section task-group-section">
@@ -949,7 +949,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the standards specified by the provided StandardsSubscriptionArns. For more information, see Standards Supported in AWS Security Hub.</p>
+                        <p>Disables the standards specified by the provided StandardsSubscriptionArns. For more information, see Security Standards section of the AWS Security Hub User Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -976,7 +976,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables the standards specified by the provided standardsArn. In this release, only CIS AWS Foundations standards are supported. For more information, see Standards Supported in AWS Security Hub.</p>
+                        <p>Enables the standards specified by the provided StandardsArn. To obtain the ARN for a standard, use the  DescribeStandards  operation. For more information, see the Security Standards section of the AWS Security Hub User Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -1057,7 +1057,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate to a security issue that requires attention or remediation. Use the GroupByAttribute to group the related findings in the insight.</p>
+                        <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate to a security issue that requires attention or remediation. To group the related findings in the insight, use the GroupByAttribute.</p>
 
                       </div>
                       <div class="declaration">
@@ -1084,7 +1084,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a member association in Security Hub between the specified accounts and the account used to make the request, which is the master account. To successfully create a member, you must use this action from an account that already has Security Hub enabled. You can use the EnableSecurityHub to enable Security Hub. After you use CreateMembers to create member account associations in Security Hub, you need to use the InviteMembers action, which invites the accounts to enable Security Hub and become member accounts in Security Hub. If the invitation is accepted by the account owner, the account becomes a member account in Security Hub, and a permission policy is added that permits the master account to view the findings generated in the member account. When Security Hub is enabled in the invited account, findings start being sent to both the member and master accounts. You can remove the association between the master and member accounts by using the DisassociateFromMasterAccount or DisassociateMembers operation.</p>
+                        <p>Creates a member association in Security Hub between the specified accounts and the account used to make the request, which is the master account. To successfully create a member, you must use this action from an account that already has Security Hub enabled. To enable Security Hub, you can use the  EnableSecurityHub  operation. After you use CreateMembers to create member account associations in Security Hub, you must use the  InviteMembers  operation to invite the accounts to enable Security Hub and become member accounts in Security Hub. If the account owner accepts the invitation, the account becomes a member account in Security Hub, and a permission policy is added that permits the master account to view the findings generated in the member account. When Security Hub is enabled in the invited account, findings start to be sent to both the member and master accounts. To remove the association between the master and member accounts, use the  DisassociateFromMasterAccount  or  DisassociateMembers  operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -1138,7 +1138,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a custom action target from Security Hub. Deleting a custom action target doesn&rsquo;t affect any findings or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>
+                        <p>Deletes a custom action target from Security Hub. Deleting a custom action target does not affect any findings or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>
 
                       </div>
                       <div class="declaration">
@@ -1300,7 +1300,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about the products available that you can subscribe to and integrate with Security Hub to consolidate findings.</p>
+                        <p>Returns information about the available products that you can subscribe to and integrate with Security Hub in order to consolidate findings.</p>
 
                       </div>
                       <div class="declaration">
@@ -1308,6 +1308,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeProducts</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeProductsRequest.html">DescribeProductsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/SecurityHub/DescribeProductsResponse.html">DescribeProductsResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV17describeStandardsy3NIO15EventLoopFutureCyAB08DescribeD8ResponseVGAB0iD7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/describeStandards(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV17describeStandardsy3NIO15EventLoopFutureCyAB08DescribeD8ResponseVGAB0iD7RequestVF">describeStandards(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of the available standards in Security Hub. For each standard, the results include the standard ARN, the name, and a description.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeStandards</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsRequest.html">DescribeStandardsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsResponse.html">DescribeStandardsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1327,7 +1354,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a list of compliance standards controls. For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.</p>
+                        <p>Returns a list of security standards controls. For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.</p>
 
                       </div>
                       <div class="declaration">
@@ -1354,7 +1381,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the integration of the specified product with Security Hub. Findings from that product are no longer sent to Security Hub after the integration is disabled.</p>
+                        <p>Disables the integration of the specified product with Security Hub. After the integration is disabled, findings from that product are no longer sent to Security Hub.</p>
 
                       </div>
                       <div class="declaration">
@@ -1381,7 +1408,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all Regions, you must submit one request per Region where you have enabled Security Hub. When you disable Security Hub for a master account, it doesn&rsquo;t disable Security Hub for any associated member accounts. When you disable Security Hub, your existing findings and insights and any Security Hub configuration settings are deleted after 90 days and can&rsquo;t be recovered. Any standards that were enabled are disabled, and your master and member account associations are removed. If you want to save your existing findings, you must export them before you disable Security Hub.</p>
+                        <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all Regions, you must submit one request per Region where you have enabled Security Hub. When you disable Security Hub for a master account, it doesn&rsquo;t disable Security Hub for any associated member accounts. When you disable Security Hub, your existing findings and insights and any Security Hub configuration settings are deleted after 90 days and cannot be recovered. Any standards that were enabled are disabled, and your master and member account associations are removed. If you want to save your existing findings, you must export them before you disable Security Hub.</p>
 
                       </div>
                       <div class="declaration">
@@ -1489,7 +1516,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables Security Hub for your account in the current Region or the Region you specify in the request. Enabling Security Hub also enables the CIS AWS Foundations standard. When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon Macie. To learn more, see Setting Up AWS Security Hub.</p>
+                        <p>Enables Security Hub for your account in the current Region or the Region you specify in the request. When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon Macie. When you use the EnableSecurityHub operation to enable Security Hub, you also automatically enable the CIS AWS Foundations standard. You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard. To enable a standard, use the  BatchEnableStandards  operation. To disable a standard, use the  BatchDisableStandards  operation. To learn more, see Setting Up AWS Security Hub in the AWS Security Hub User Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -1570,7 +1597,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists the results of the Security Hub insight that the insight ARN specifies.</p>
+                        <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>
 
                       </div>
                       <div class="declaration">
@@ -1597,7 +1624,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists and describes insights that insight ARNs specify.</p>
+                        <p>Lists and describes insights for the specified insight ARNs.</p>
 
                       </div>
                       <div class="declaration">
@@ -1651,7 +1678,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides the details for the Security Hub master account to the current member account.</p>
+                        <p>Provides the details for the Security Hub master account for the current member account.</p>
 
                       </div>
                       <div class="declaration">
@@ -1678,7 +1705,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the details on the Security Hub member accounts that the account IDs specify.</p>
+                        <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
 
                       </div>
                       <div class="declaration">
@@ -1705,7 +1732,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invites other AWS accounts to become member accounts for the Security Hub master account that the invitation is sent from. Before you can use this action to invite a member, you must first create the member account in Security Hub by using the CreateMembers action. When the account owner accepts the invitation to become a member account and enables Security Hub, the master account can view the findings generated from member account.</p>
+                        <p>Invites other AWS accounts to become member accounts for the Security Hub master account that the invitation is sent from. Before you can use this action to invite a member, you must first use the  CreateMembers  action to create the member account in Security Hub. When the account owner accepts the invitation to become a member account and enables Security Hub, the master account can view the findings generated from the member account.</p>
 
                       </div>
                       <div class="declaration">
@@ -1732,7 +1759,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists all findings-generating solutions (products) whose findings you have subscribed to receive in Security Hub.</p>
+                        <p>Lists all findings-generating solutions (products) that you are subscribed to receive findings from in Security Hub.</p>
 
                       </div>
                       <div class="declaration">
@@ -1948,7 +1975,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the Security Hub insight that the insight ARN specifies.</p>
+                        <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
 
                       </div>
                       <div class="declaration">
@@ -1975,7 +2002,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used to control whether an individual compliance standard control is enabled or disabled.</p>
+                        <p>Used to control whether an individual security standard control is enabled or disabled.</p>
 
                       </div>
                       <div class="declaration">
@@ -2020,7 +2047,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeActionTargetsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeActionTargetsRequest.html">DescribeActionTargetsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeActionTargetsResponse.html">DescribeActionTargetsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeActionTargetsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeActionTargetsRequest.html">DescribeActionTargetsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeActionTargetsResponse.html">DescribeActionTargetsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2040,14 +2067,95 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about the products available that you can subscribe to and integrate with Security Hub to consolidate findings.</p>
+                        <p>Returns information about the available products that you can subscribe to and integrate with Security Hub in order to consolidate findings.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeProductsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeProductsRequest.html">DescribeProductsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeProductsResponse.html">DescribeProductsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeProductsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeProductsRequest.html">DescribeProductsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeProductsResponse.html">DescribeProductsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV26describeStandardsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribeD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/describeStandardsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV26describeStandardsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribeD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF">describeStandardsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of the available standards in Security Hub. For each standard, the results include the standard ARN, the name, and a description.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeStandardsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsRequest.html">DescribeStandardsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsResponse.html">DescribeStandardsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV34describeStandardsControlsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribedE7RequestV_AGySbGAB0mdE8ResponseV_AE0jK0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/describeStandardsControlsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV34describeStandardsControlsPaginator_6onPage3NIO15EventLoopFutureCyytGAB08DescribedE7RequestV_AGySbGAB0mdE8ResponseV_AE0jK0_ptctF">describeStandardsControlsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of security standards controls. For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeStandardsControlsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsControlsRequest.html">DescribeStandardsControlsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/DescribeStandardsControlsResponse.html">DescribeStandardsControlsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV28getEnabledStandardsPaginator_6onPage3NIO15EventLoopFutureCyytGAB03GetdE7RequestV_AGySbGAB0mdE8ResponseV_AE0jK0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/getEnabledStandardsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV28getEnabledStandardsPaginator_6onPage3NIO15EventLoopFutureCyytGAB03GetdE7RequestV_AGySbGAB0mdE8ResponseV_AE0jK0_ptctF">getEnabledStandardsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of the standards that are currently enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getEnabledStandardsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/GetEnabledStandardsRequest.html">GetEnabledStandardsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/GetEnabledStandardsResponse.html">GetEnabledStandardsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2074,7 +2182,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFindingsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/GetFindingsRequest.html">GetFindingsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/GetFindingsResponse.html">GetFindingsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFindingsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/GetFindingsRequest.html">GetFindingsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/GetFindingsResponse.html">GetFindingsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2094,14 +2202,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists and describes insights that insight ARNs specify.</p>
+                        <p>Lists and describes insights for the specified insight ARNs.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInsightsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/GetInsightsRequest.html">GetInsightsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/GetInsightsResponse.html">GetInsightsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInsightsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/GetInsightsRequest.html">GetInsightsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/GetInsightsResponse.html">GetInsightsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2121,14 +2229,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists all findings-generating solutions (products) whose findings you have subscribed to receive in Security Hub.</p>
+                        <p>Lists all findings-generating solutions (products) that you are subscribed to receive findings from in Security Hub.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listEnabledProductsForImportPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/ListEnabledProductsForImportRequest.html">ListEnabledProductsForImportRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/ListEnabledProductsForImportResponse.html">ListEnabledProductsForImportResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listEnabledProductsForImportPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/ListEnabledProductsForImportRequest.html">ListEnabledProductsForImportRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/ListEnabledProductsForImportResponse.html">ListEnabledProductsForImportResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV24listInvitationsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listInvitationsPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV24listInvitationsPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF">listInvitationsPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists all Security Hub membership invitations that were sent to the current AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listInvitationsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/ListInvitationsRequest.html">ListInvitationsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/ListInvitationsResponse.html">ListInvitationsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV20listMembersPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF"></a>
+                    <a name="//apple_ref/swift/Method/listMembersPaginator(_:onPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV20listMembersPaginator_6onPage3NIO15EventLoopFutureCyytGAB04ListD7RequestV_AGySbGAB0lD8ResponseV_AE0iJ0_ptctF">listMembersPaginator(_:onPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists details about all member accounts for the current Security Hub master account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMembersPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/SecurityHub/ListMembersRequest.html">ListMembersRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SecurityHub/ListMembersResponse.html">ListMembersResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2168,7 +2330,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeActionTargetsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SecurityHub.html">SecurityHub</a></span><span class="o">.</span><span class="kt">DescribeActionTargetsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2197,7 +2358,90 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeProductsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SecurityHub.html">SecurityHub</a></span><span class="o">.</span><span class="kt">DescribeProductsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV24DescribeStandardsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeStandardsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV24DescribeStandardsRequestV">DescribeStandardsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/DescribeStandardsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeStandardsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV32DescribeStandardsControlsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeStandardsControlsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV32DescribeStandardsControlsRequestV">DescribeStandardsControlsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/DescribeStandardsControlsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeStandardsControlsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV26GetEnabledStandardsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/GetEnabledStandardsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV26GetEnabledStandardsRequestV">GetEnabledStandardsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/GetEnabledStandardsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetEnabledStandardsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2226,7 +2470,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetFindingsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SecurityHub.html">SecurityHub</a></span><span class="o">.</span><span class="kt">GetFindingsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2255,7 +2498,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetInsightsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SecurityHub.html">SecurityHub</a></span><span class="o">.</span><span class="kt">GetInsightsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2284,7 +2526,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListEnabledProductsForImportRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SecurityHub.html">SecurityHub</a></span><span class="o">.</span><span class="kt">ListEnabledProductsForImportRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV22ListInvitationsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListInvitationsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV22ListInvitationsRequestV">ListInvitationsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/ListInvitationsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListInvitationsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV18ListMembersRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListMembersRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV18ListMembersRequestV">ListMembersRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/ListMembersRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListMembersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2546,6 +2843,146 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:11SecurityHubAAV26AwsCodeBuildProjectDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsCodeBuildProjectDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV26AwsCodeBuildProjectDetailsV">AwsCodeBuildProjectDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsCodeBuildProjectDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsCodeBuildProjectDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV30AwsCodeBuildProjectEnvironmentV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsCodeBuildProjectEnvironment" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV30AwsCodeBuildProjectEnvironmentV">AwsCodeBuildProjectEnvironment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsCodeBuildProjectEnvironment.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsCodeBuildProjectEnvironment</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV48AwsCodeBuildProjectEnvironmentRegistryCredentialV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsCodeBuildProjectEnvironmentRegistryCredential" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV48AwsCodeBuildProjectEnvironmentRegistryCredentialV">AwsCodeBuildProjectEnvironmentRegistryCredential</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsCodeBuildProjectEnvironmentRegistryCredential.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsCodeBuildProjectEnvironmentRegistryCredential</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV25AwsCodeBuildProjectSourceV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsCodeBuildProjectSource" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV25AwsCodeBuildProjectSourceV">AwsCodeBuildProjectSource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsCodeBuildProjectSource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsCodeBuildProjectSource</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV28AwsCodeBuildProjectVpcConfigV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsCodeBuildProjectVpcConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV28AwsCodeBuildProjectVpcConfigV">AwsCodeBuildProjectVpcConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsCodeBuildProjectVpcConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsCodeBuildProjectVpcConfig</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:11SecurityHubAAV21AwsEc2InstanceDetailsV"></a>
                     <a name="//apple_ref/swift/Struct/AwsEc2InstanceDetails" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SecurityHubAAV21AwsEc2InstanceDetailsV">AwsEc2InstanceDetails</a>
@@ -2565,6 +3002,398 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2InstanceDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV32AwsEc2NetworkInterfaceAttachmentV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2NetworkInterfaceAttachment" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV32AwsEc2NetworkInterfaceAttachmentV">AwsEc2NetworkInterfaceAttachment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2NetworkInterfaceAttachment.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2NetworkInterfaceAttachment</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV29AwsEc2NetworkInterfaceDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2NetworkInterfaceDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV29AwsEc2NetworkInterfaceDetailsV">AwsEc2NetworkInterfaceDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2NetworkInterfaceDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2NetworkInterfaceDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV022AwsEc2NetworkInterfaceA5GroupV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2NetworkInterfaceSecurityGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV022AwsEc2NetworkInterfaceA5GroupV">AwsEc2NetworkInterfaceSecurityGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2NetworkInterfaceSecurityGroup.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2NetworkInterfaceSecurityGroup</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2A12GroupDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2A12GroupDetailsV">AwsEc2SecurityGroupDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2A17GroupIpPermissionV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupIpPermission" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2A17GroupIpPermissionV">AwsEc2SecurityGroupIpPermission</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupIpPermission.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupIpPermission</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2A12GroupIpRangeV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupIpRange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2A12GroupIpRangeV">AwsEc2SecurityGroupIpRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupIpRange.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupIpRange</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2A14GroupIpv6RangeV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupIpv6Range" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2A14GroupIpv6RangeV">AwsEc2SecurityGroupIpv6Range</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupIpv6Range.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupIpv6Range</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2A17GroupPrefixListIdV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupPrefixListId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2A17GroupPrefixListIdV">AwsEc2SecurityGroupPrefixListId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupPrefixListId.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupPrefixListId</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV06AwsEc2a11GroupUserIdE4PairV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsEc2SecurityGroupUserIdGroupPair" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV06AwsEc2a11GroupUserIdE4PairV">AwsEc2SecurityGroupUserIdGroupPair</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsEc2SecurityGroupUserIdGroupPair.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsEc2SecurityGroupUserIdGroupPair</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV29AwsElasticsearchDomainDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsElasticsearchDomainDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV29AwsElasticsearchDomainDetailsV">AwsElasticsearchDomainDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsElasticsearchDomainDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsElasticsearchDomainDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV022AwsElasticsearchDomainE15EndpointOptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsElasticsearchDomainDomainEndpointOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV022AwsElasticsearchDomainE15EndpointOptionsV">AwsElasticsearchDomainDomainEndpointOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsElasticsearchDomainDomainEndpointOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsElasticsearchDomainDomainEndpointOptions</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV45AwsElasticsearchDomainEncryptionAtRestOptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsElasticsearchDomainEncryptionAtRestOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV45AwsElasticsearchDomainEncryptionAtRestOptionsV">AwsElasticsearchDomainEncryptionAtRestOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsElasticsearchDomainEncryptionAtRestOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsElasticsearchDomainEncryptionAtRestOptions</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV028AwsElasticsearchDomainNodeToF17EncryptionOptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsElasticsearchDomainNodeToNodeEncryptionOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV028AwsElasticsearchDomainNodeToF17EncryptionOptionsV">AwsElasticsearchDomainNodeToNodeEncryptionOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsElasticsearchDomainNodeToNodeEncryptionOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsElasticsearchDomainNodeToNodeEncryptionOptions</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV32AwsElasticsearchDomainVPCOptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsElasticsearchDomainVPCOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV32AwsElasticsearchDomainVPCOptionsV">AwsElasticsearchDomainVPCOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsElasticsearchDomainVPCOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsElasticsearchDomainVPCOptions</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2910,6 +3739,146 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:11SecurityHubAAV28AwsLambdaLayerVersionDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsLambdaLayerVersionDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV28AwsLambdaLayerVersionDetailsV">AwsLambdaLayerVersionDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsLambdaLayerVersionDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsLambdaLayerVersionDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV30AwsRdsDbInstanceAssociatedRoleV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsRdsDbInstanceAssociatedRole" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV30AwsRdsDbInstanceAssociatedRoleV">AwsRdsDbInstanceAssociatedRole</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsRdsDbInstanceAssociatedRole.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsRdsDbInstanceAssociatedRole</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV23AwsRdsDbInstanceDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsRdsDbInstanceDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV23AwsRdsDbInstanceDetailsV">AwsRdsDbInstanceDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsRdsDbInstanceDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsRdsDbInstanceDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV24AwsRdsDbInstanceEndpointV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsRdsDbInstanceEndpoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV24AwsRdsDbInstanceEndpointV">AwsRdsDbInstanceEndpoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsRdsDbInstanceEndpoint.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsRdsDbInstanceEndpoint</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV019AwsRdsDbInstanceVpcA5GroupV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsRdsDbInstanceVpcSecurityGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV019AwsRdsDbInstanceVpcA5GroupV">AwsRdsDbInstanceVpcSecurityGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsRdsDbInstanceVpcSecurityGroup.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsRdsDbInstanceVpcSecurityGroup</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:11SecurityHubAAV18AwsS3BucketDetailsV"></a>
                     <a name="//apple_ref/swift/Struct/AwsS3BucketDetails" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SecurityHubAAV18AwsS3BucketDetailsV">AwsS3BucketDetails</a>
@@ -2929,6 +3898,118 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsS3BucketDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV40AwsS3BucketServerSideEncryptionByDefaultV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsS3BucketServerSideEncryptionByDefault" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV40AwsS3BucketServerSideEncryptionByDefaultV">AwsS3BucketServerSideEncryptionByDefault</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsS3BucketServerSideEncryptionByDefault.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsS3BucketServerSideEncryptionByDefault</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV44AwsS3BucketServerSideEncryptionConfigurationV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsS3BucketServerSideEncryptionConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV44AwsS3BucketServerSideEncryptionConfigurationV">AwsS3BucketServerSideEncryptionConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsS3BucketServerSideEncryptionConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsS3BucketServerSideEncryptionConfiguration</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV35AwsS3BucketServerSideEncryptionRuleV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsS3BucketServerSideEncryptionRule" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV35AwsS3BucketServerSideEncryptionRuleV">AwsS3BucketServerSideEncryptionRule</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsS3BucketServerSideEncryptionRule.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsS3BucketServerSideEncryptionRule</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV18AwsS3ObjectDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsS3ObjectDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV18AwsS3ObjectDetailsV">AwsS3ObjectDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsS3ObjectDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsS3ObjectDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3069,6 +4150,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsSqsQueueDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV19AwsWafWebAclDetailsV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsWafWebAclDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV19AwsWafWebAclDetailsV">AwsWafWebAclDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsWafWebAclDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsWafWebAclDetails</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV16AwsWafWebAclRuleV"></a>
+                    <a name="//apple_ref/swift/Struct/AwsWafWebAclRule" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV16AwsWafWebAclRuleV">AwsWafWebAclRule</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/AwsWafWebAclRule.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AwsWafWebAclRule</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3918,34 +5055,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SecurityHubAAV32DescribeStandardsControlsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/DescribeStandardsControlsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SecurityHubAAV32DescribeStandardsControlsRequestV">DescribeStandardsControlsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/SecurityHub/DescribeStandardsControlsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeStandardsControlsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:11SecurityHubAAV33DescribeStandardsControlsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/DescribeStandardsControlsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SecurityHubAAV33DescribeStandardsControlsResponseV">DescribeStandardsControlsResponse</a>
@@ -3965,6 +5074,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeStandardsControlsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV25DescribeStandardsResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeStandardsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV25DescribeStandardsResponseV">DescribeStandardsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/DescribeStandardsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeStandardsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4301,34 +5438,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">EnableSecurityHubResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SecurityHubAAV26GetEnabledStandardsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/GetEnabledStandardsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SecurityHubAAV26GetEnabledStandardsRequestV">GetEnabledStandardsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/SecurityHub/GetEnabledStandardsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GetEnabledStandardsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4926,34 +6035,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SecurityHubAAV22ListInvitationsRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListInvitationsRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SecurityHubAAV22ListInvitationsRequestV">ListInvitationsRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/SecurityHub/ListInvitationsRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListInvitationsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:11SecurityHubAAV23ListInvitationsResponseV"></a>
                     <a name="//apple_ref/swift/Struct/ListInvitationsResponse" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SecurityHubAAV23ListInvitationsResponseV">ListInvitationsResponse</a>
@@ -4973,34 +6054,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListInvitationsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SecurityHubAAV18ListMembersRequestV"></a>
-                    <a name="//apple_ref/swift/Struct/ListMembersRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SecurityHubAAV18ListMembersRequestV">ListMembersRequest</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/SecurityHub/ListMembersRequest.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListMembersRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5598,6 +6651,34 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:11SecurityHubAAV8StandardV"></a>
+                    <a name="//apple_ref/swift/Struct/Standard" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV8StandardV">Standard</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/Standard.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Standard</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:11SecurityHubAAV16StandardsControlV"></a>
                     <a name="//apple_ref/swift/Struct/StandardsControl" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SecurityHubAAV16StandardsControlV">StandardsControl</a>
@@ -6071,6 +7152,118 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV9WafActionV"></a>
+                    <a name="//apple_ref/swift/Struct/WafAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV9WafActionV">WafAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/WafAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WafAction</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV15WafExcludedRuleV"></a>
+                    <a name="//apple_ref/swift/Struct/WafExcludedRule" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV15WafExcludedRuleV">WafExcludedRule</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/WafExcludedRule.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WafExcludedRule</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV17WafOverrideActionV"></a>
+                    <a name="//apple_ref/swift/Struct/WafOverrideAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV17WafOverrideActionV">WafOverrideAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/WafOverrideAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">WafOverrideAction</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV8WorkflowV"></a>
+                    <a name="//apple_ref/swift/Struct/Workflow" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV8WorkflowV">Workflow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/Workflow.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Workflow</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -6188,6 +7381,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DateRangeUnit</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV15IntegrationTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/IntegrationType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV15IntegrationTypeO">IntegrationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/IntegrationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">IntegrationType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -6356,6 +7577,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RecordState</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV13SeverityLabelO"></a>
+                    <a name="//apple_ref/swift/Enum/SeverityLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV13SeverityLabelO">SeverityLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/SeverityLabel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SeverityLabel</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -6586,13 +7835,41 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SecurityHubAAV14WorkflowStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/WorkflowStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SecurityHubAAV14WorkflowStatusO">WorkflowStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/SecurityHub/WorkflowStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WorkflowStatus</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

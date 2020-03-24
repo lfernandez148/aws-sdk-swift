@@ -729,7 +729,7 @@
               </div>
             <p>Client object for interacting with AWS AugmentedAIRuntime service.</p>
 
-<p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can&rsquo;t evaluate data with a high degree of confidence. From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries. When trying to apply AI in these situations, you can be forced to choose between &ldquo;ML only&rdquo; systems with unacceptably high error rates or &ldquo;human only&rdquo; systems that are expensive and difficult to scale, and that slow down decision making. This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically.  You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as Textract.AnalyzeDocument and Rekognition.DetectModerationLabels. These AI services, in turn, invoke the StartHumanLoop API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop. Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results. You can find additional Augmented AI API documentation in the following reference guides: Amazon Rekognition, Amazon SageMaker, and Amazon Textract.</p>
+<p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can&rsquo;t evaluate data with a high degree of confidence. From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries. When trying to apply AI in these situations, you can be forced to choose between <q>ML only</q> systems with unacceptably high error rates or <q>human only</q> systems that are expensive and difficult to scale, and that slow down decision making. This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically.  You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as Textract.AnalyzeDocument and Rekognition.DetectModerationLabels. These AI services, in turn, invoke the StartHumanLoop API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop. Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results. You can find additional Augmented AI API documentation in the following reference guides: Amazon Rekognition, Amazon SageMaker, and Amazon Textract.</p>
 
           </section>
           <section class="section task-group-section">
@@ -976,7 +976,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about human loops, given the specified parameters.</p>
+                        <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
 
                       </div>
                       <div class="declaration">
@@ -1068,14 +1068,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns information about human loops, given the specified parameters.</p>
+                        <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHumanLoopsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/AugmentedAIRuntime/ListHumanLoopsRequest.html">ListHumanLoopsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/AugmentedAIRuntime/ListHumanLoopsResponse.html">ListHumanLoopsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listHumanLoopsPaginator</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/AugmentedAIRuntime/ListHumanLoopsRequest.html">ListHumanLoopsRequest</a></span><span class="p">,</span> <span class="nv">onPage</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/AugmentedAIRuntime/ListHumanLoopsResponse.html">ListHumanLoopsResponse</a></span><span class="p">,</span> <span class="kt">EventLoop</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1115,7 +1115,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListHumanLoopsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/AugmentedAIRuntime.html">AugmentedAIRuntime</a></span><span class="o">.</span><span class="kt">ListHumanLoopsRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSPaginateStringToken.html">AWSPaginateStringToken</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1237,9 +1236,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18AugmentedAIRuntimeAAV25HumanLoopActivationReasonV"></a>
-                    <a name="//apple_ref/swift/Struct/HumanLoopActivationReason" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV25HumanLoopActivationReasonV">HumanLoopActivationReason</a>
+                    <a name="/s:18AugmentedAIRuntimeAAV23HumanLoopDataAttributesV"></a>
+                    <a name="//apple_ref/swift/Struct/HumanLoopDataAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV23HumanLoopDataAttributesV">HumanLoopDataAttributes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1249,13 +1248,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="../Structs/AugmentedAIRuntime/HumanLoopActivationReason.html" class="slightly-smaller">See more</a>
+                        <a href="../Structs/AugmentedAIRuntime/HumanLoopDataAttributes.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopActivationReason</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopDataAttributes</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1265,9 +1264,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18AugmentedAIRuntimeAAV26HumanLoopActivationResultsV"></a>
-                    <a name="//apple_ref/swift/Struct/HumanLoopActivationResults" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV26HumanLoopActivationResultsV">HumanLoopActivationResults</a>
+                    <a name="/s:18AugmentedAIRuntimeAAV14HumanLoopInputV"></a>
+                    <a name="//apple_ref/swift/Struct/HumanLoopInput" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV14HumanLoopInputV">HumanLoopInput</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1277,13 +1276,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="../Structs/AugmentedAIRuntime/HumanLoopActivationResults.html" class="slightly-smaller">See more</a>
+                        <a href="../Structs/AugmentedAIRuntime/HumanLoopInput.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopActivationResults</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopInput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1293,9 +1292,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18AugmentedAIRuntimeAAV21HumanLoopInputContentV"></a>
-                    <a name="//apple_ref/swift/Struct/HumanLoopInputContent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV21HumanLoopInputContentV">HumanLoopInputContent</a>
+                    <a name="/s:18AugmentedAIRuntimeAAV15HumanLoopOutputV"></a>
+                    <a name="//apple_ref/swift/Struct/HumanLoopOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV15HumanLoopOutputV">HumanLoopOutput</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1305,41 +1304,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="../Structs/AugmentedAIRuntime/HumanLoopInputContent.html" class="slightly-smaller">See more</a>
+                        <a href="../Structs/AugmentedAIRuntime/HumanLoopOutput.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopInputContent</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:18AugmentedAIRuntimeAAV22HumanLoopOutputContentV"></a>
-                    <a name="//apple_ref/swift/Struct/HumanLoopOutputContent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV22HumanLoopOutputContentV">HumanLoopOutputContent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/AugmentedAIRuntime/HumanLoopOutputContent.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopOutputContent</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopOutput</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1368,34 +1339,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanLoopSummary</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:18AugmentedAIRuntimeAAV25HumanReviewDataAttributesV"></a>
-                    <a name="//apple_ref/swift/Struct/HumanReviewDataAttributes" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18AugmentedAIRuntimeAAV25HumanReviewDataAttributesV">HumanReviewDataAttributes</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="../Structs/AugmentedAIRuntime/HumanReviewDataAttributes.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HumanReviewDataAttributes</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1643,7 +1586,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

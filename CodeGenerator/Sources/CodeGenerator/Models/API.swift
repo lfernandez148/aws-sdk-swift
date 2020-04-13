@@ -241,6 +241,7 @@ class Shape: Decodable, Patchable {
         var deprecated: Bool?
         var xmlNamespace: API.XMLNamespace?
         var flattened: Bool?
+        var streaming: Bool?
         var idempotencyToken: Bool?
         // set after decode in postProcess stage
         var required: Bool = false
@@ -253,6 +254,7 @@ class Shape: Decodable, Patchable {
             case deprecated
             case xmlNamespace
             case flattened
+            case streaming
             case idempotencyToken
         }
     }
@@ -421,6 +423,7 @@ class Shape: Decodable, Patchable {
     var xmlNamespace: API.XMLNamespace?
     var error: Error?
     var exception: Bool?
+    var streaming: Bool?
     // set after decode in postProcess stage
     var usedInInput: Bool
     var usedInOutput: Bool
@@ -442,6 +445,7 @@ class Shape: Decodable, Patchable {
         self.xmlNamespace = try container.decodeIfPresent(API.XMLNamespace.self, forKey: .xmlNamespace)
         self.error = try container.decodeIfPresent(Error.self, forKey: .error)
         self.exception = try container.decodeIfPresent(Bool.self, forKey: .exception)
+        self.streaming = try container.decodeIfPresent(Bool.self, forKey: .streaming)
         self.type = try ShapeType(from: decoder)
     }
 
@@ -481,11 +485,13 @@ class Shape: Decodable, Patchable {
         }
     }
 
+    // remember to add to init(from:Decoder) function as well
     private enum CodingKeys: String, CodingKey {
         case type
         case payload
         case xmlNamespace
         case error
         case exception
+        case streaming
     }
 }

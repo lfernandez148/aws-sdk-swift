@@ -907,7 +907,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The storage capacity of the file system being created. For Windows file systems, valid values are 32 GiB - 65,536 GiB. For SCRATCH_1 Lustre file systems, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3600 GiB. For SCRATCH_2 and PERSISTENT_1 file systems, valid values are 1200, 2400, then continuing in increments of 2400 GiB.</p>
+                        <p>Sets the storage capacity of the file system that you&rsquo;re creating. For Lustre file systems:   For SCRATCH_2 and PERSISTENT_1 deployment types, valid values are 1.2, 2.4, and increments of 2.4 TiB.   For SCRATCH_1 deployment type, valid values are 1.2, 2.4, and increments of 3.6 TiB.   For Windows file systems:   If StorageType=SSD, valid values are 32 GiB - 65,536 GiB (64 TiB).   If StorageType=HDD, valid values are 2000 GiB - 65,536 GiB (64 TiB).</p>
 
                       </div>
                       <div class="declaration">
@@ -915,6 +915,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storageCapacity</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3FSxAAV23CreateFileSystemRequestV11storageTypeAB07StorageG0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/storageType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3FSxAAV23CreateFileSystemRequestV11storageTypeAB07StorageG0OSgvp">storageType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the storage type for the Amazon FSx for Windows file system you&rsquo;re creating. Valid values are SSD and HDD.   Set to SSD to use solid state drive storage. SSD is supported on all Windows deployment types.   Set to HDD to use hard disk drive storage. HDD is supported on SINGLE_AZ_2 and MULTI_AZ_1 Windows file system deployment types.     Default value is SSD. For more information, see  Storage Type Options in the Amazon FSx for Windows User Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storageType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/StorageType.html">StorageType</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -934,7 +961,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows MULTI_AZ_1 file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the WindowsConfiguration &gt; PreferredSubnetID property. For Windows SINGLE_AZ_1 file system deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet&rsquo;s Availability Zone.</p>
+                        <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows MULTI_AZ_1 file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the WindowsConfiguration &gt; PreferredSubnetID property. For Windows SINGLE_AZ_1 and SINGLE_AZ_2 file system deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet&rsquo;s Availability Zone.</p>
 
                       </div>
                       <div class="declaration">
@@ -988,7 +1015,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Microsoft Windows configuration for the file system being created. This value is required if FileSystemType is set to WINDOWS.</p>
+                        <p>The Microsoft Windows configuration for the file system being created.</p>
 
                       </div>
                       <div class="declaration">
@@ -1005,9 +1032,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3FSxAAV23CreateFileSystemRequestV06clientE5Token04fileD4Type8kmsKeyId19lustreConfiguration16securityGroupIds15storageCapacity06subnetQ04tags07windowsN0ADSSSg_AB0cdI0OAnB0bcd6LustreN0VSgSaySSGSgSiATSayAB3TagVGSgAB0bcd7WindowsN0VSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(clientRequestToken:fileSystemType:kmsKeyId:lustreConfiguration:securityGroupIds:storageCapacity:subnetIds:tags:windowsConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3FSxAAV23CreateFileSystemRequestV06clientE5Token04fileD4Type8kmsKeyId19lustreConfiguration16securityGroupIds15storageCapacity06subnetQ04tags07windowsN0ADSSSg_AB0cdI0OAnB0bcd6LustreN0VSgSaySSGSgSiATSayAB3TagVGSgAB0bcd7WindowsN0VSgtcfc">init(clientRequestToken:fileSystemType:kmsKeyId:lustreConfiguration:securityGroupIds:storageCapacity:subnetIds:tags:windowsConfiguration:)</a>
+                    <a name="/s:3FSxAAV23CreateFileSystemRequestV06clientE5Token04fileD4Type8kmsKeyId19lustreConfiguration16securityGroupIds15storageCapacity0rI006subnetQ04tags07windowsN0ADSSSg_AB0cdI0OAoB0bcd6LustreN0VSgSaySSGSgSiAB07StorageI0OSgAUSayAB3TagVGSgAB0bcd7WindowsN0VSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(clientRequestToken:fileSystemType:kmsKeyId:lustreConfiguration:securityGroupIds:storageCapacity:storageType:subnetIds:tags:windowsConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3FSxAAV23CreateFileSystemRequestV06clientE5Token04fileD4Type8kmsKeyId19lustreConfiguration16securityGroupIds15storageCapacity0rI006subnetQ04tags07windowsN0ADSSSg_AB0cdI0OAoB0bcd6LustreN0VSgSaySSGSgSiAB07StorageI0OSgAUSayAB3TagVGSgAB0bcd7WindowsN0VSgtcfc">init(clientRequestToken:fileSystemType:kmsKeyId:lustreConfiguration:securityGroupIds:storageCapacity:storageType:subnetIds:tags:windowsConfiguration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1022,7 +1049,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">clientRequestToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kt">CreateFileSystemRequest</span><span class="o">.</span><span class="nf">idempotencyToken</span><span class="p">(),</span> <span class="nv">fileSystemType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/FileSystemType.html">FileSystemType</a></span><span class="p">,</span> <span class="nv">kmsKeyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">lustreConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemLustreConfiguration.html">CreateFileSystemLustreConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">storageCapacity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">subnetIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/FSx/Tag.html">Tag</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">windowsConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemWindowsConfiguration.html">CreateFileSystemWindowsConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">clientRequestToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kt">CreateFileSystemRequest</span><span class="o">.</span><span class="nf">idempotencyToken</span><span class="p">(),</span> <span class="nv">fileSystemType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/FileSystemType.html">FileSystemType</a></span><span class="p">,</span> <span class="nv">kmsKeyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">lustreConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemLustreConfiguration.html">CreateFileSystemLustreConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">storageCapacity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">storageType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/StorageType.html">StorageType</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">subnetIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/FSx/Tag.html">Tag</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">windowsConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemWindowsConfiguration.html">CreateFileSystemWindowsConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1061,7 +1088,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -729,7 +729,7 @@
               </div>
             <p>Client object for interacting with AWS IoT service.</p>
 
-<p>AWS IoT AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices. For more information about how AWS IoT works, see the Developer Guide. For information about how to use the credentials provider for AWS IoT, see Authorizing Direct Calls to AWS Services.</p>
+<p>AWS IoT AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices. The service endpoints that expose this API are listed in AWS IoT Core Endpoints and Quotas. You must use the endpoint for the region that has the resources you want to access. The service name used by AWS Signature Version 4 to sign the request is: execute-api. For more information about how AWS IoT works, see the Developer Guide. For information about how to use the credentials provider for AWS IoT, see Authorizing Direct Calls to AWS Services.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1004,7 +1004,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Associates a group with a continuous job. The following criteria must be met:    The job must have been created with the targetSelection field set to <q>CONTINUOUS</q>.   The job status must currently be <q>IN_PROGRESS</q>.   The total number of targets associated with a job must not exceed 100.</p>
+                        <p>Associates a group with a continuous job. The following criteria must be met:    The job must have been created with the targetSelection field set to &ldquo;CONTINUOUS&rdquo;.   The job status must currently be &ldquo;IN_PROGRESS&rdquo;.   The total number of targets associated with a job must not exceed 100.</p>
 
                       </div>
                       <div class="declaration">
@@ -1066,7 +1066,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"AttachPrincipalPolicy is deprecated."</span><span class="p">)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "AttachPrincipalPolicy is deprecated.")</span>
 <span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">attachPrincipalPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/AttachPrincipalPolicyRequest.html">AttachPrincipalPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
@@ -1169,7 +1169,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand. If the audit is not in progress, an <q>InvalidRequestException</q> occurs.</p>
+                        <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand. If the audit is not in progress, an &ldquo;InvalidRequestException&rdquo; occurs.</p>
 
                       </div>
                       <div class="declaration">
@@ -1387,7 +1387,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an X.509 certificate using the specified certificate signing request.  Note: The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves.   Note: Reusing the same certificate signing request (CSR) results in a distinct certificate. You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. Assuming a set of CSRs are located inside of the directory my-csr-directory: On Linux and OS X, the command is: $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/{} This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/{} On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/$_} On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is: &gt; forfiles /p my-csr-directory /c <q>cmd /c aws iot create-certificate-from-csr &ndash;certificate-signing-request file://@path</q></p>
+                        <p>Creates an X.509 certificate using the specified certificate signing request.  Note: The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves.   Note: Reusing the same certificate signing request (CSR) results in a distinct certificate. You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. Assuming a set of CSRs are located inside of the directory my-csr-directory: On Linux and OS X, the command is: $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/{} This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/{} On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr &ndash;certificate-signing-request file://my-csr-directory/$_} On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is: &gt; forfiles /p my-csr-directory /c &ldquo;cmd /c aws iot create-certificate-from-csr &ndash;certificate-signing-request file://@path&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1395,6 +1395,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createCertificateFromCsr</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/CreateCertificateFromCsrRequest.html">CreateCertificateFromCsrRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/CreateCertificateFromCsrResponse.html">CreateCertificateFromCsrResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV15createDimensiony3NIO15EventLoopFutureCyAB06CreateC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/createDimension(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV15createDimensiony3NIO15EventLoopFutureCyAB06CreateC8ResponseVGAB0hC7RequestVF">createDimension(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a TOPIC_FILTER dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createDimension</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/CreateDimensionRequest.html">CreateDimensionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/CreateDimensionResponse.html">CreateDimensionResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -2081,6 +2108,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV15deleteDimensiony3NIO15EventLoopFutureCyAB06DeleteC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/deleteDimension(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV15deleteDimensiony3NIO15EventLoopFutureCyAB06DeleteC8ResponseVGAB0hC7RequestVF">deleteDimension(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the specified dimension from your AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteDimension</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/DeleteDimensionRequest.html">DeleteDimensionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/DeleteDimensionResponse.html">DeleteDimensionResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV25deleteDomainConfigurationy3NIO15EventLoopFutureCyAB06DeletecD8ResponseVGAB0icD7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/deleteDomainConfiguration(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV25deleteDomainConfigurationy3NIO15EventLoopFutureCyAB06DeletecD8ResponseVGAB0icD7RequestVF">deleteDomainConfiguration(_:)</a>
@@ -2145,7 +2199,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a job and its related job executions. Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as <q>DELETION_IN_PROGRESS</q>. Attempting to delete or cancel a job whose status is already <q>DELETION_IN_PROGRESS</q> will result in an error. Only 10 jobs may have status <q>DELETION_IN_PROGRESS</q> at the same time, or a LimitExceededException will occur.</p>
+                        <p>Deletes a job and its related job executions. Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as &ldquo;DELETION_IN_PROGRESS&rdquo;. Attempting to delete or cancel a job whose status is already &ldquo;DELETION_IN_PROGRESS&rdquo; will result in an error. Only 10 jobs may have status &ldquo;DELETION_IN_PROGRESS&rdquo; at the same time, or a LimitExceededException will occur.</p>
 
                       </div>
                       <div class="declaration">
@@ -2924,6 +2978,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV17describeDimensiony3NIO15EventLoopFutureCyAB08DescribeC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/describeDimension(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV17describeDimensiony3NIO15EventLoopFutureCyAB08DescribeC8ResponseVGAB0hC7RequestVF">describeDimension(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides details about a dimension that is defined in your AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">describeDimension</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/DescribeDimensionRequest.html">DescribeDimensionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/DescribeDimensionResponse.html">DescribeDimensionResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV27describeDomainConfigurationy3NIO15EventLoopFutureCyAB08DescribecD8ResponseVGAB0icD7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/describeDomainConfiguration(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV27describeDomainConfigurationy3NIO15EventLoopFutureCyAB08DescribecD8ResponseVGAB0icD7RequestVF">describeDomainConfiguration(_:)</a>
@@ -3428,7 +3509,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"DetachPrincipalPolicy is deprecated."</span><span class="p">)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "DetachPrincipalPolicy is deprecated.")</span>
 <span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">detachPrincipalPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/DetachPrincipalPolicyRequest.html">DetachPrincipalPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
@@ -3722,7 +3803,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call GetPercentiles. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group <q>1</q> contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group <q>5</q> contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p>
+                        <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call GetPercentiles. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group &ldquo;1&rdquo; contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group &ldquo;5&rdquo; contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p>
 
                       </div>
                       <div class="declaration">
@@ -4225,6 +4306,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV14listDimensionsy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/listDimensions(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV14listDimensionsy3NIO15EventLoopFutureCyAB04ListC8ResponseVGAB0hC7RequestVF">listDimensions(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List the set of dimensions that are defined for your AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listDimensions</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/ListDimensionsRequest.html">ListDimensionsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/ListDimensionsResponse.html">ListDimensionsResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV24listDomainConfigurationsy3NIO15EventLoopFutureCyAB04ListcD8ResponseVGAB0icD7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/listDomainConfigurations(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV24listDomainConfigurationsy3NIO15EventLoopFutureCyAB04ListcD8ResponseVGAB0icD7RequestVF">listDomainConfigurations(_:)</a>
@@ -4485,7 +4593,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"ListPolicyPrincipals is deprecated."</span><span class="p">)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "ListPolicyPrincipals is deprecated.")</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">listPolicyPrincipals</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/ListPolicyPrincipalsRequest.html">ListPolicyPrincipalsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/ListPolicyPrincipalsResponse.html">ListPolicyPrincipalsResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
@@ -4540,7 +4648,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"ListPrincipalPolicies is deprecated."</span><span class="p">)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "ListPrincipalPolicies is deprecated.")</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">listPrincipalPolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/ListPrincipalPoliciesRequest.html">ListPrincipalPoliciesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/ListPrincipalPoliciesResponse.html">ListPrincipalPoliciesResponse</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
@@ -5936,6 +6044,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV15updateDimensiony3NIO15EventLoopFutureCyAB06UpdateC8ResponseVGAB0hC7RequestVF"></a>
+                    <a name="//apple_ref/swift/Method/updateDimension(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV15updateDimensiony3NIO15EventLoopFutureCyAB06UpdateC8ResponseVGAB0hC7RequestVF">updateDimension(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and re-create it).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateDimension</span><span class="p">(</span><span class="n">_</span> <span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IoT/UpdateDimensionRequest.html">UpdateDimensionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/IoT/UpdateDimensionResponse.html">UpdateDimensionResponse</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV25updateDomainConfigurationy3NIO15EventLoopFutureCyAB06UpdatecD8ResponseVGAB0icD7RequestVF"></a>
                     <a name="//apple_ref/swift/Method/updateDomainConfiguration(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV25updateDomainConfigurationy3NIO15EventLoopFutureCyAB06UpdatecD8ResponseVGAB0icD7RequestVF">updateDomainConfiguration(_:)</a>
@@ -6968,6 +7103,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV13DimensionTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/DimensionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV13DimensionTypeO">DimensionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DimensionType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DimensionType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV22DimensionValueOperatorO"></a>
+                    <a name="//apple_ref/swift/Enum/DimensionValueOperator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV22DimensionValueOperatorO">DimensionValueOperator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DimensionValueOperator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DimensionValueOperator</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV25DomainConfigurationStatusO"></a>
                     <a name="//apple_ref/swift/Enum/DomainConfigurationStatus" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV25DomainConfigurationStatusO">DomainConfigurationStatus</a>
@@ -7434,7 +7625,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="p">`</span><span class="nv">Protocol</span><span class="p">`</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="err">`</span><span class="kt">Protocol</span><span class="err">`</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -9807,6 +9998,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV22CreateDimensionRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/CreateDimensionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV22CreateDimensionRequestV">CreateDimensionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/CreateDimensionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CreateDimensionRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV23CreateDimensionResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/CreateDimensionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV23CreateDimensionResponseV">CreateDimensionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/CreateDimensionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CreateDimensionResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV32CreateDomainConfigurationRequestV"></a>
                     <a name="//apple_ref/swift/Struct/CreateDomainConfigurationRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV32CreateDomainConfigurationRequestV">CreateDomainConfigurationRequest</a>
@@ -11170,6 +11417,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeleteCertificateRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV22DeleteDimensionRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DeleteDimensionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV22DeleteDimensionRequestV">DeleteDimensionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DeleteDimensionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeleteDimensionRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV23DeleteDimensionResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/DeleteDimensionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV23DeleteDimensionResponseV">DeleteDimensionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DeleteDimensionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DeleteDimensionResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12766,6 +13069,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDefaultAuthorizerResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV24DescribeDimensionRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeDimensionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV24DescribeDimensionRequestV">DescribeDimensionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DescribeDimensionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDimensionRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV25DescribeDimensionResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/DescribeDimensionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV25DescribeDimensionResponseV">DescribeDimensionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/DescribeDimensionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DescribeDimensionResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16387,6 +16746,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV21ListDimensionsRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/ListDimensionsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV21ListDimensionsRequestV">ListDimensionsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/ListDimensionsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListDimensionsRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV22ListDimensionsResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/ListDimensionsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV22ListDimensionsResponseV">ListDimensionsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/ListDimensionsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ListDimensionsResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV31ListDomainConfigurationsRequestV"></a>
                     <a name="//apple_ref/swift/Struct/ListDomainConfigurationsRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV31ListDomainConfigurationsRequestV">ListDomainConfigurationsRequest</a>
@@ -18478,6 +18893,62 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LoggingOptionsPayload</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV15MetricDimensionV"></a>
+                    <a name="//apple_ref/swift/Struct/MetricDimension" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV15MetricDimensionV">MetricDimension</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/MetricDimension.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MetricDimension</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV14MetricToRetainV"></a>
+                    <a name="//apple_ref/swift/Struct/MetricToRetain" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV14MetricToRetainV">MetricToRetain</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/MetricToRetain.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MetricToRetain</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
 
                         </div>
                       </div>
@@ -21819,6 +22290,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:3IoTAAV22UpdateDimensionRequestV"></a>
+                    <a name="//apple_ref/swift/Struct/UpdateDimensionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV22UpdateDimensionRequestV">UpdateDimensionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/UpdateDimensionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UpdateDimensionRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3IoTAAV23UpdateDimensionResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/UpdateDimensionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3IoTAAV23UpdateDimensionResponseV">UpdateDimensionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/IoT/UpdateDimensionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UpdateDimensionResponse</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AWSShape.html">AWSShape</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3IoTAAV32UpdateDomainConfigurationRequestV"></a>
                     <a name="//apple_ref/swift/Struct/UpdateDomainConfigurationRequest" class="dashAnchor"></a>
                     <a class="token" href="#/s:3IoTAAV32UpdateDomainConfigurationRequestV">UpdateDomainConfigurationRequest</a>
@@ -22746,7 +23273,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

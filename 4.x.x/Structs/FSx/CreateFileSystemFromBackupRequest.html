@@ -826,7 +826,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups apply to all network interfaces. This value isn&rsquo;t returned in later describe requests.</p>
+                        <p>A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups apply to all network interfaces. This value isn&rsquo;t returned in later DescribeFileSystem requests.</p>
 
                       </div>
                       <div class="declaration">
@@ -834,6 +834,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3FSxAAV33CreateFileSystemFromBackupRequestV11storageTypeAB07StorageI0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/storageType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3FSxAAV33CreateFileSystemFromBackupRequestV11storageTypeAB07StorageI0OSgvp">storageType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the storage type for the Windows file system you&rsquo;re creating from a backup. Valid values are SSD and HDD.   Set to SSD to use solid state drive storage. Supported on all Windows deployment types.   Set to HDD to use hard disk drive storage. Supported on SINGLE_AZ_2 and MULTI_AZ_1 Windows file system deployment types.     Default value is SSD.   HDD and SSD storage types have different minimum storage capacity requirements. A restored file system&rsquo;s storage capacity is tied to the file system that was backed up. You can create a file system that uses HDD storage from a backup of a file system that used SSD storage only if the original SSD file system had a storage capacity of at least 2000 GiB.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storageType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/StorageType.html">StorageType</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -853,7 +880,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of IDs for the subnets that the file system will be accessible from. Currently, you can specify only one subnet. The file server is also launched in that subnet&rsquo;s Availability Zone.</p>
+                        <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows MULTI_AZ_1 file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the WindowsConfiguration &gt; PreferredSubnetID property. For Windows SINGLE_AZ_1 and SINGLE_AZ_2 deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet&rsquo;s Availability Zone.</p>
 
                       </div>
                       <div class="declaration">
@@ -924,9 +951,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3FSxAAV33CreateFileSystemFromBackupRequestV8backupId06clientG5Token16securityGroupIds06subnetN04tags20windowsConfigurationADSS_SSSgSaySSGSgALSayAB3TagVGSgAB0bcd7WindowsR0VSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(backupId:clientRequestToken:securityGroupIds:subnetIds:tags:windowsConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3FSxAAV33CreateFileSystemFromBackupRequestV8backupId06clientG5Token16securityGroupIds06subnetN04tags20windowsConfigurationADSS_SSSgSaySSGSgALSayAB3TagVGSgAB0bcd7WindowsR0VSgtcfc">init(backupId:clientRequestToken:securityGroupIds:subnetIds:tags:windowsConfiguration:)</a>
+                    <a name="/s:3FSxAAV33CreateFileSystemFromBackupRequestV8backupId06clientG5Token16securityGroupIds11storageType06subnetN04tags20windowsConfigurationADSS_SSSgSaySSGSgAB07StorageP0OSgAMSayAB3TagVGSgAB0bcd7WindowsT0VSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(backupId:clientRequestToken:securityGroupIds:storageType:subnetIds:tags:windowsConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3FSxAAV33CreateFileSystemFromBackupRequestV8backupId06clientG5Token16securityGroupIds11storageType06subnetN04tags20windowsConfigurationADSS_SSSgSaySSGSgAB07StorageP0OSgAMSayAB3TagVGSgAB0bcd7WindowsT0VSgtcfc">init(backupId:clientRequestToken:securityGroupIds:storageType:subnetIds:tags:windowsConfiguration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -941,7 +968,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">backupId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientRequestToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kt">CreateFileSystemFromBackupRequest</span><span class="o">.</span><span class="nf">idempotencyToken</span><span class="p">(),</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">subnetIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/FSx/Tag.html">Tag</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">windowsConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemWindowsConfiguration.html">CreateFileSystemWindowsConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">backupId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientRequestToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kt">CreateFileSystemFromBackupRequest</span><span class="o">.</span><span class="nf">idempotencyToken</span><span class="p">(),</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">storageType</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/StorageType.html">StorageType</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">subnetIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../../Structs/FSx/Tag.html">Tag</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">windowsConfiguration</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FSx/CreateFileSystemWindowsConfiguration.html">CreateFileSystemWindowsConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -980,7 +1007,7 @@
         </section>
         <section id="footer">
           <p>© Copyright (c) 2019 Yuki Takei(noppoMan), Joe Smith(Yasumoto), Jonathan McAllister(jonnymacs), Adam Fowler (adam-fowler)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

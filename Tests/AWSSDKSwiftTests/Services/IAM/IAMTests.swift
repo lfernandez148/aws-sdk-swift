@@ -24,7 +24,7 @@ class IAMTests: XCTestCase {
     let client = IAM(
         accessKeyId: "key",
         secretAccessKey: "secret",
-        endpoint: ProcessInfo.processInfo.environment["IAM_ENDPOINT"] ?? "http://localhost:4593",
+        endpoint: ProcessInfo.processInfo.environment["IAM_ENDPOINT"] ?? "http://localhost:4566",
         middlewares: (ProcessInfo.processInfo.environment["AWS_ENABLE_LOGGING"] == "true") ? [AWSLoggingMiddleware()] : [],
         httpClientProvider: .createNew
     )

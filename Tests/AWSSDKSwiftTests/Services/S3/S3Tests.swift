@@ -30,7 +30,7 @@ class S3Tests: XCTestCase {
         accessKeyId: "key",
         secretAccessKey: "secret",
         region: .euwest1,
-        endpoint: ProcessInfo.processInfo.environment["S3_ENDPOINT"] ?? "http://localhost:4572",
+        endpoint: ProcessInfo.processInfo.environment["S3_ENDPOINT"] ?? "http://localhost:4566",
         middlewares: (ProcessInfo.processInfo.environment["AWS_ENABLE_LOGGING"] == "true") ? [AWSLoggingMiddleware()] : [],
         httpClientProvider: .createNew
     )
@@ -147,10 +147,9 @@ class S3Tests: XCTestCase {
 
     func testMultiPartDownloadFailure() {
         attempt {
+            let testData = try TestData(#function, client: client)
+            let filename = testData.key
             do {
-                let testData = try TestData(#function, client: client)
-
-                let filename = testData.key
                 _ = try client.multipartDownload(
                     S3.GetObjectRequest(bucket: testData.bucket, key: testData.key),
                     partSize: 5,
@@ -161,6 +160,7 @@ class S3Tests: XCTestCase {
             } catch {
                 XCTFail("testMultiPartDownloadFailure: Unexpected error")
             }
+            try? FileManager.default.removeItem(at: URL(fileURLWithPath: filename))
         }
     }
 
@@ -207,6 +207,9 @@ class S3Tests: XCTestCase {
 
             let filename = testData.key
             try data.write(to: URL(fileURLWithPath: filename))
+            defer {
+                XCTAssertNoThrow(try FileManager.default.removeItem(at: URL(fileURLWithPath: filename)))
+            }
 
             // file doesn't exist
             do {

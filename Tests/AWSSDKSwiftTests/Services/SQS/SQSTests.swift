@@ -29,7 +29,7 @@ class SQSTests: XCTestCase {
         accessKeyId: "key",
         secretAccessKey: "secret",
         region: .useast1,
-        endpoint: ProcessInfo.processInfo.environment["SQS_ENDPOINT"] ?? "http://localhost:4576",
+        endpoint: ProcessInfo.processInfo.environment["SQS_ENDPOINT"] ?? "http://localhost:4566",
         middlewares: (ProcessInfo.processInfo.environment["AWS_ENABLE_LOGGING"] == "true") ? [AWSLoggingMiddleware()] : [],
         httpClientProvider: .createNew
     )
@@ -140,7 +140,7 @@ class SQSTests: XCTestCase {
 
             let messageBody = "Testing, testing,1,2,1,2"
             let sendMessageBatchRequest = SQS.SendMessageBatchRequest(entries: [.init(id:"msg1", messageBody: messageBody)], queueUrl: testData.queueUrl)
-            let messageId = try client.sendMessageBatch(sendMessageBatchRequest).wait()
+            _ = try client.sendMessageBatch(sendMessageBatchRequest).wait()
         }
     }
 
